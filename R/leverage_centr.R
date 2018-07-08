@@ -18,8 +18,6 @@
 #' leverage_centr(binary.graphs, weighted=FALSE)
 #' leverage_centr(weighted.graphs, weighted=TRUE)
 #'
-#' @seealso \code{\link{rsfcNet::leverage_centr_single}}
-#'
 #' @references
 #' Joyce, K. E., Laurienti, P. J., Burdette, J. H., & Hayasaka, S. (2010). A New Measure of Centrality for Brain Networks. PLoS ONE, 5(8). doi:10.1371/journal.pone.0012200
 #'

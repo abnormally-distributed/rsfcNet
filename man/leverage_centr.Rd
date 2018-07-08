@@ -38,9 +38,6 @@ Vargas, R., Waldron, A., Sharma, A., Flórez, R., & Narayan, D. A. (2017). A gra
 
 http://igraph.wikidot.com/r-recipes#toc10
 }
-\seealso{
-\code{\link{rsfcNet::leverage_centr_single}}
-}
 \author{
 Alex Upton, Brandon Vaughan
 }
