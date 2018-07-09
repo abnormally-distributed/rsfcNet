@@ -3,6 +3,8 @@
 #' This function calculates the leverage centrality for a single graph.
 #' @param graphs An undirected igraph object.
 #' @param weighted By default weighted=FALSE, but can also be set to weighted=TRUE.
+#' @param col.names The names of each column (node labels). Checks global environment for "colnames" but may be assigned directly.
+#' @param row.names The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.
 #' @return A matrix of the eigenvector centralities of each node for each subject.
 #' @export
 #' @author Alex Upton, Brandon Vaughan
@@ -25,8 +27,10 @@
 #'
 #' http://igraph.wikidot.com/r-recipes#toc10
 
-leverage_centr = function(graphs, weighted=FALSE){
+leverage_centr = function(graphs, weighted=FALSE, col.names=.GlobalEnv$colnames, row.names=.GlobalEnv$rownames){
   lev = pbapply::pbsapply(graphs, function(g) leverage_centr_single(g, weighted=weighted))
   lev = t(lev)
+  rownames(lev) = row.names
+  colnames(lev) = col.names
   return(lev)
 }

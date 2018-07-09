@@ -4,12 +4,17 @@
 \alias{leverage_centr}
 \title{Calculate leverage centrality for all nodes for multiple subjects.}
 \usage{
-leverage_centr(graphs, weighted = FALSE)
+leverage_centr(graphs, weighted = FALSE, col.names = .GlobalEnv$colnames,
+  row.names = .GlobalEnv$rownames)
 }
 \arguments{
 \item{graphs}{An undirected igraph object.}
 
 \item{weighted}{By default weighted=FALSE, but can also be set to weighted=TRUE.}
+
+\item{col.names}{The names of each column (node labels). Checks global environment for "colnames" but may be assigned directly.}
+
+\item{row.names}{The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.}
 }
 \value{
 A matrix of the eigenvector centralities of each node for each subject.
