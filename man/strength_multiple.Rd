@@ -2,17 +2,17 @@
 % Please edit documentation in R/strength_multiple.R
 \name{strength_multiple}
 \alias{strength_multiple}
-\title{Calculate node connection strength for weighted undirected networks (multiple subjects).}
+\title{Calculate signed strength statistics on a multiple graphs.}
 \usage{
-strength_multiple(cormats, which = "all", Scale = "TRUE",
+strength_multiple(graphs, which = "star", Scale = TRUE,
   col.names = .GlobalEnv$colnames, row.names = .GlobalEnv$rownames)
 }
 \arguments{
-\item{cormats}{a list of connectivity matrices.}
+\item{graphs}{a list of networks in matrix format or as an igraph objects.}
 
-\item{which}{which = "all" returns the strength star metric from Rubinov and Sporns (2011) along with the positive strengths and negative strengths for each node. which="star", "pos", and "neg" return only the weighted strength, positive strength, and negative strength respectively.}
+\item{which}{defaults to the weighted strength metric "star". Can also be "pos", "neg", or "all".}
 
-\item{Scale}{Should Strength* be scaled to the range -1 to 1 (assuming correlations are the edge weights)? Defaults to Scale="TRUE"}
+\item{Scale}{Should Strength* be scaled to the range -1 to 1 (assuming correlations are the edge weights)? Defaults to "TRUE"}
 
 \item{col.names}{The names of each column (node labels)}
 
@@ -22,14 +22,21 @@ strength_multiple(cormats, which = "all", Scale = "TRUE",
 A matrix of the statistic for the chosen strength measure, or a list of matrices if which="all"
 }
 \description{
-This calculates the strength star metric proposed by Rubinov and Sporns (2011). Strength star is a weighted combination of the positive connections and negative connections in a correlation matrix. This function can also return positive and negative strength.
+This calculates strength statistics on a list of graphs.
 }
 \examples{
-strength = strength_multiple(cormats, which="star")
+strength = strength_multiple(graphs, which="star")
 }
 \references{
 Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
 }
 \author{
 Brandon Vaughan
+
+#' @details Strength star is the weighted combination of the positive connections and negative connections
+in a network proposed by Rubinov and Sporns (2011). The statistic is calculated by the following formula:
+\eqn{s_i^{*}=s_i^+-\left(\frac{s_i^-}{s_i^++s_i^-}\right)s_i^-}
+When normalized to the -1 to 1 interval with scale=TRUE the positive and negative strength
+are normalized with the following formula first then plugged into the above formula:
+\eqn{s_i^\pm = \frac1{n-1}s_i^\pm}
 }

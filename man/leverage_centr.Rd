@@ -17,7 +17,7 @@ leverage_centr(graphs, weighted = FALSE, col.names = .GlobalEnv$colnames,
 \item{row.names}{The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.}
 }
 \value{
-A matrix of the eigenvector centralities of each node for each subject.
+A matrix of the leverage centralities of each node for each subject.
 }
 \description{
 This function calculates the leverage centrality for a single graph.

@@ -10,9 +10,9 @@ get_cor_matrices(scrubbed_ts_bulk, method = "partial", n = .GlobalEnv$n,
 \arguments{
 \item{scrubbed_ts_bulk}{The list of scrubbed time series matrices.}
 
-\item{n}{The The number of subjects in the list. Checks the global environment for "n" but may be assigned directly.}
+\item{n}{The number of subjects in the list. Checks the global environment for "n" but may be assigned directly.}
 
-\item{n.nodes}{The The number of nodes. Checks the global environment for "n.nodes" but may be assigned directly.}
+\item{n.nodes}{The number of nodes. Checks the global environment for "n.nodes" but may be assigned directly.}
 }
 \value{
 The scrubbed time series matrices.
@@ -26,6 +26,7 @@ cormats = get_cor_matrices(scrubbed_ts_list)
 }
 \references{
 Opgen-Rhein, R., and K. Strimmer. 2007. Accurate ranking of differentially expressed genes by a distribution-free shrinkage approach. Statist. Appl. Genet. Mol. Biol. 6:9. doi:10.2202/1544-6115.1252
+
 
 Schaefer, J., and K. Strimmer. 2005. A shrinkage approach to large-scale covariance estimation and implications for functional genomics. Statist. Appl. Genet. Mol. Biol. 4:32. doi:10.2202/1544-6115.1175
 }

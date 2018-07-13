@@ -4,12 +4,12 @@
 \alias{threshold_matrix}
 \title{Threshold a correlation matrix}
 \usage{
-threshold_matrix(c, q = 0.95)
+threshold_matrix(c, q = 0.9)
 }
 \arguments{
-\item{c}{The correlation matrix.}
+\item{c}{The network either as connectivity matrix or as an igraph object.}
 
-\item{q}{The quantile to threshold. Defaults to .95, such that all below the 95th quantile are set to zero.}
+\item{q}{The quantile to threshold. Defaults to .90, such that all below the 90th quantile are set to zero.}
 }
 \value{
 The pruned correlation matrix.

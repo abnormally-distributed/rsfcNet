@@ -9,7 +9,7 @@ threshold_and_binarize(c, q)
 \arguments{
 \item{c}{The correlation matrix.}
 
-\item{q}{The quantile to threshold. Defaults to .95, such that all below the 95th quantile are set to zero.}
+\item{q}{The quantile to threshold. Defaults to .90, such that all below the 90th quantile are set to zero.}
 }
 \value{
 A binary adjacency matrix
@@ -19,7 +19,7 @@ Threshold a correlation matrix and convert it to an un-weighted (binary) adjacen
 }
 \examples{
 threshold_and_binarize(matrix, q=.90) # This should threshold such that only positive values are returned.
-threshold_and_binarize(abs(matrix), q=.90) # Taking the absolute value of the matrix will allow negative correlations sufficiently strong to be included as an edge. 
+threshold_and_binarize(abs(matrix), q=.90) # Taking the absolute value of the matrix will allow negative correlations sufficiently strong to be included as an edge.
 }
 \author{
 Brandon Vaughan

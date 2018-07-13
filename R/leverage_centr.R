@@ -5,7 +5,7 @@
 #' @param weighted By default weighted=FALSE, but can also be set to weighted=TRUE.
 #' @param col.names The names of each column (node labels). Checks global environment for "colnames" but may be assigned directly.
 #' @param row.names The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.
-#' @return A matrix of the eigenvector centralities of each node for each subject.
+#' @return A matrix of the leverage centralities of each node for each subject.
 #' @export
 #' @author Alex Upton, Brandon Vaughan
 #' @details  Leverage centrality is a new measure of node centrality put forth by Joyce et al (2010). Developed specifically for use in functional brain network analysis, this measure has a favorable property of attempting to chracterize information flow in an undirected functional brain network. Leverage centrality compares the degree of a node to the degree of all its neighbors. A node with a high degree/strength is not necessarily one with a high centrality value. Leverage centrality defines centrality as having high degree/strength relative to the degree/strength of a node's neighbors. If the neighbors are also of high degree/strength the node is not considered a central node. Keeping with its biological inspiration, leverage centrality does not assume information in a network flows in a serial fashion or only along the shortest path, but on how information flows within a local neighborhood of nodes (Joyce et al, 2010).
