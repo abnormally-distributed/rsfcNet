@@ -28,5 +28,6 @@ write_gephi = function(graph, node_attributes, directory=getwd(), name=Sys.Date(
   nodes_coord_a = as.data.frame(layout.auto(graph, weights = E(graph)$weight, niter = 50))
   nodes_coord = cbind(nodes_coord_a, rep(0, times = nrow(nodes_coord_a)))
   file_title = paste0(directory,name,".gexf",sep="")
+  print("Converting to gephi format. This may take 3-5 minutes depending on network size and computer speed.")
   write.gexf(nodes = nodes_df, edges = edges_df, nodesAtt = node_attributes, edgesAtt = edges_att, defaultedgetype = "undirected", output = file_title)
 }
