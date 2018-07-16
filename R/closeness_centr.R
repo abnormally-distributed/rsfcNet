@@ -1,6 +1,6 @@
 #' Calculate closeness centrality for all nodes for multiple subjects.
 #'
-#' This function is a convenience wrapper for igraph's closeness function and takes as an input a list of igraph objects. ECV is calculated on the absolute values of the correlation matrix per Lohmann et al, 2010. ECV is standardized subject-wise to 0-1 range for consistency.
+#' This function is a convenience wrapper for igraph's closeness function and takes as an input a list of igraph objects. 
 #' @param graphs a list of igraph objects.
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
@@ -24,7 +24,7 @@
 
 closeness_centr = function (graphs, col.names = NULL, row.names = NULL)
 {
-  closeness = pbapply::pbsapply(graphs, function(x) igraph::closeness(x,normalized = scale, weights= abs(E(x)$weight)))
+  closeness = pbapply::pbsapply(graphs, function(x) igraph::closeness(x,normalized = FALSE, weights= abs(E(x)$weight)))
   closeness = t(closeness)
   colnames(closeness) = col.names
   rownames(closeness) = row.names
