@@ -3,8 +3,8 @@
 #' This function takes a list of time series files and a list of confound matrices and returns the scrubbed time series files. The default method is "censor". Censoring takes the preceding time point and the following two time points of each bad time point in the confound matrices and deletes them as described in Power et al, 2012. If there are relatively few bad time points in the subjects method="interpolate" may be tried, which uses the imputeTS package when smooth.outliers=FALSE.
 #' @param ts_file_bulk list of time series matrices.
 #' @param confound_file_bulk list of confound files for each subject
-#' @param n The The number of subjects in the list. Checks the global environment for "n" but may be assigned directly.
-#' @param n.nodes The The number of nodes in the network. Checks the global environment for "n.nodes" but may be assigned directly.
+#' @param n The The number of subjects in the list.
+#' @param n.nodes The The number of nodes in the network.
 #' @param method method="censor" uses censoring/scrubbing while interpolation fills in missing time points column-wise with smooth polynomials.
 #' @return The time series matrix for each subject.
 #' @export
@@ -14,7 +14,7 @@
 #' @references
 #' Power, J. D., Barnes, K. A., Snyder, A. Z., Schlaggar, B. L., & Petersen, S. E. (2012). Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion. Neuroimage, 59(3), 2142–2154. http://doi.org/10.1016/j.neuroimage.2011.10.018
 #' Moritz S, Bartz-Beielstein T (2017). “imputeTS: Time Series Missing Value Imputation in R.” The R Journal, 9(1), 207–218. https://journal.r-project.org/archive/2017/RJ-2017-009/index.html
-scrub_time_series = function(ts_file_bulk, confound_file_bulk, method="censor", n=.GlobalEnv$n, n.nodes=.GlobalEnv$n.nodes) {
+scrub_time_series = function(ts_file_bulk, confound_file_bulk, method="censor", n=NULL, n.nodes=NULL) {
 
   if (method=="censor") {
     badrows = lapply(confound_file_bulk, bad_ts)

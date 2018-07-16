@@ -17,8 +17,8 @@
 #'
 #' Schaefer, J., and K. Strimmer. 2005. A shrinkage approach to large-scale covariance estimation and implications for functional genomics. Statist. Appl. Genet. Mol. Biol. 4:32. doi:10.2202/1544-6115.1175
 #'
-get_cor_matrices = function(scrubbed_ts_bulk, method="partial", n=.GlobalEnv$n, n.nodes=.GlobalEnv$n.nodes) {
-  print("Estimating Adjacency Matrix with Shrinkage.")
+get_cor_matrices = function(scrubbed_ts_bulk, method="partial", n=NULL, n.nodes=NULL) {
+  print("Estimating Connectivity Matrix with Shrinkage.")
   if (method=="covariance") {
     covmats = pbapply::pblapply(scrubbed_ts_bulk,corpcor::cov.shrink, verbose=FALSE)
     covmats= lapply(1:n, function(i) {diag(covmats[[i]]) <- 0; covmats[[i]]})

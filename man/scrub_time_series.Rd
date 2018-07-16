@@ -5,7 +5,7 @@
 \title{"Scrubs" Bad Time Points from Time Series Matrix}
 \usage{
 scrub_time_series(ts_file_bulk, confound_file_bulk, method = "censor",
-  n = .GlobalEnv$n, n.nodes = .GlobalEnv$n.nodes)
+  n = NULL, n.nodes = NULL)
 }
 \arguments{
 \item{ts_file_bulk}{list of time series matrices.}
@@ -14,9 +14,9 @@ scrub_time_series(ts_file_bulk, confound_file_bulk, method = "censor",
 
 \item{method}{method="censor" uses censoring/scrubbing while interpolation fills in missing time points column-wise with smooth polynomials.}
 
-\item{n}{The The number of subjects in the list. Checks the global environment for "n" but may be assigned directly.}
+\item{n}{The The number of subjects in the list.}
 
-\item{n.nodes}{The The number of nodes in the network. Checks the global environment for "n.nodes" but may be assigned directly.}
+\item{n.nodes}{The The number of nodes in the network.}
 }
 \value{
 The time series matrix for each subject.

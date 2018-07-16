@@ -4,8 +4,8 @@
 \alias{LASSO}
 \title{Variable selection using LASSO (L1 penalty) regression.}
 \usage{
-LASSO(x, y, var.names = .GlobalEnv$colnames, family = "gaussian",
-  output = "html", return.glmnet = FALSE)
+LASSO(x, y, var.names = NULL, family = "gaussian", output = "html",
+  return.glmnet = FALSE)
 }
 \arguments{
 \item{x}{A matrix of predictor (independent) variables.}

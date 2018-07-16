@@ -2,22 +2,17 @@
 % Please edit documentation in R/leverage_centr.R
 \name{leverage_centr}
 \alias{leverage_centr}
-\title{Calculate leverage centrality for all nodes for multiple subjects.}
+\title{Calculate leverage centrality for a single subject.}
 \usage{
-leverage_centr(graphs, weighted = FALSE, col.names = .GlobalEnv$colnames,
-  row.names = .GlobalEnv$rownames)
+leverage_centr(graph, weighted = FALSE)
 }
 \arguments{
-\item{graphs}{An undirected igraph object.}
+\item{graph}{An undirected igraph object.}
 
 \item{weighted}{By default weighted=FALSE, but can also be set to weighted=TRUE.}
-
-\item{col.names}{The names of each column (node labels). Checks global environment for "colnames" but may be assigned directly.}
-
-\item{row.names}{The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.}
 }
 \value{
-A matrix of the leverage centralities of each node for each subject.
+A matrix of the leverage centralities of each node in a subject.
 }
 \description{
 This function calculates the leverage centrality for a single graph.
@@ -32,8 +27,8 @@ The formula for leverage centrality is given below, where k_i is the degree/stre
 For more information on the mathematics of leverage centrality see Vargas et al (2017). This function was originally written by Alex Upton and can be found on the igraph wiki (see references). What this function changes is replacing NaN with zero in the case where a node without any connections after thresholding results in divison by zero. This function also expands leverage centrality to weighted undirected networks. If doing this, be sure to threshold the correlation matrix per Joyce et al (2010).
 }
 \examples{
-leverage_centr(binary.graphs, weighted=FALSE)
-leverage_centr(weighted.graphs, weighted=TRUE)
+leverage_centr(binary.graph, weighted=FALSE)
+leverage_centr(weighted.graph, weighted=TRUE)
 
 }
 \references{

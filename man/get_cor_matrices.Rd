@@ -4,8 +4,8 @@
 \alias{get_cor_matrices}
 \title{Obtain correlation matrices for each subject.}
 \usage{
-get_cor_matrices(scrubbed_ts_bulk, method = "partial", n = .GlobalEnv$n,
-  n.nodes = .GlobalEnv$n.nodes)
+get_cor_matrices(scrubbed_ts_bulk, method = "partial", n = NULL,
+  n.nodes = NULL)
 }
 \arguments{
 \item{scrubbed_ts_bulk}{The list of scrubbed time series matrices.}

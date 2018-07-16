@@ -4,12 +4,14 @@
 \alias{threshold_and_binarize}
 \title{Binarize a correlation matrix.}
 \usage{
-threshold_and_binarize(c, q)
+threshold_and_binarize(c, q = 0.9, as.igraph = FALSE, pos.only = TRUE)
 }
 \arguments{
 \item{c}{The correlation matrix.}
 
 \item{q}{The quantile to threshold. Defaults to .90, such that all below the 90th quantile are set to zero.}
+
+\item{pos.only}{Should negative connections be removed before thresholding? Defaults to TRUE.}
 }
 \value{
 A binary adjacency matrix

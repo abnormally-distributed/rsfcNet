@@ -4,8 +4,8 @@
 \alias{strength_multiple}
 \title{Calculate signed strength statistics on a multiple graphs.}
 \usage{
-strength_multiple(graphs, which = "star", Scale = TRUE,
-  col.names = .GlobalEnv$colnames, row.names = .GlobalEnv$rownames)
+strength_multiple(graphs, which = "star", Scale = TRUE, col.names = NULL,
+  row.names = NULL)
 }
 \arguments{
 \item{graphs}{a list of networks in matrix format or as an igraph objects.}
@@ -24,19 +24,41 @@ A matrix of the statistic for the chosen strength measure, or a list of matrices
 \description{
 This calculates strength statistics on a list of graphs.
 }
+\details{
+Strength star is the weighted combination of the positive connections and negative connections
+in a network proposed by Rubinov and Sporns (2011). The statistic is calculated by the following formula:
+
+
+\eqn{s_i^{*}=s_i^+-\left(\frac{s_i^-}{s_i^++s_i^-}\right)s_i^-}
+
+
+where the positive and negative strength are respectively the sum of positive/negative weights:
+
+
+\eqn{s_i^\pm = \sum_{j\neq i}^N w_{ij}}
+
+
+When normalized to the -1 to 1 interval with scale=TRUE the positive and negative strength
+are normalized with the following formula first then plugged into the above formula:
+
+
+\eqn{s_i^\pm = \frac1{n-1}s_i^\pm}
+}
 \examples{
 strength = strength_multiple(graphs, which="star")
+
 }
 \references{
+Fornito, A., Zalesky, A., & Bullmore, E. (2016). Node Degree and Strength. Chapter 4. Fundamentals of Brain Network Analysis, 115-136. doi:10.1016/B978-0-12-407908-3.00004-2
+
 Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
+}
+\seealso{
+\code{\link[rsfcNet]{strength_signed}}
+\code{\link[rsfcNet]{degree_centr}}
+\code{\link[igraph]{strength}}
+\code{\link[igraph]{degree}}
 }
 \author{
 Brandon Vaughan
-
-#' @details Strength star is the weighted combination of the positive connections and negative connections
-in a network proposed by Rubinov and Sporns (2011). The statistic is calculated by the following formula:
-\eqn{s_i^{*}=s_i^+-\left(\frac{s_i^-}{s_i^++s_i^-}\right)s_i^-}
-When normalized to the -1 to 1 interval with scale=TRUE the positive and negative strength
-are normalized with the following formula first then plugged into the above formula:
-\eqn{s_i^\pm = \frac1{n-1}s_i^\pm}
 }

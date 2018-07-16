@@ -4,15 +4,14 @@
 \alias{eigen_centr}
 \title{Calculate eigenvector centrality for all nodes for multiple subjects.}
 \usage{
-eigen_centr(graphs, col.names = .GlobalEnv$colnames,
-  row.names = .GlobalEnv$rownames)
+eigen_centr(graphs, col.names = NULL, row.names = NULL)
 }
 \arguments{
 \item{graphs}{a list of igraph objects.}
 
-\item{col.names}{The names of each column (node labels). Checks global environment for "colnames" but may be assigned directly.}
+\item{col.names}{The names of each column (node labels).}
 
-\item{row.names}{The names of each row (subject). Checks global environment for "rownames" but may be assigned directly.}
+\item{row.names}{The names of each row (subject).}
 }
 \value{
 A matrix of the eigenvector centralities of each node for each subject.

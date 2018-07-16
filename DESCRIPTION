@@ -1,12 +1,12 @@
 Package: rsfcNet
 Title: Analyze resting state functional connectivity networks
-Version: 0.0.2.999
+Version: 0.99
 Authors@R: person("Brandon", "Vaughan", email = "vaughanb@musc.edu", role = c("aut", "cre"))
-Description: This package is a companion to the igraph package which facilitates the analysis of resting state functional MRI data. The package contains several entirely custom-written functions to implement preparation of data for analysis (scrubbing, as described in Power et al, 2012) along with certain graph theory metrics or neuroscience-appropriate variations of existing metrics not available in igraph. Other functions are convenience functions to facilitate the analysis of large numbers of pairwise comparisons for large P and P>>n situations and variable/model selection with publication/presentation-ready results tables.
+Description: This package is a companion to the igraph package which facilitates the analysis of resting state functional MRI data. The package contains several entirely custom-written functions to facilitate the preparation of connectome data for analysis as well as functions for graph theory metrics not available (as of 2018) in igraph. Other functions make applying igraph functions to multiple graphs fast and easy. Some statistical analysis functions are also included for large P and P >> n settings.  Certain functions also have built in parallel processing support. 
 Depends: R (>= 3.3.0),
 	 corpcor (>= 1.1.2),
 	 glmnet (>= 2.0-16),
-	 igraph (>= 1.1.2),
+	 igraph (>= 1.0.0),
 	 pbapply (>= 1.3-4),
 	 qgraph (>= 1.4.4),
 	 fdrtool (>= 1.2.15),
@@ -18,7 +18,8 @@ Depends: R (>= 3.3.0),
 	 forecast (>= 8.2),	
 	 st (>= 1.2.5),
 	 rgexf (>= 0.15.3),
-	 BayesFactor (>= 0.9.11)
+	 BayesFactor (>= 0.9.11),
+	 parallel (>= 3.4.1)
 License: GNU General Public License
 Encoding: UTF-8
 LazyData: true

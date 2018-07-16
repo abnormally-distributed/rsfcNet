@@ -18,43 +18,47 @@
 #' Jerome Friedman, Trevor Hastie, Robert Tibshirani (2010). Regularization Paths for Generalized Linear Models via Coordinate Descent. Journal of Statistical Software, 33(1), 1-22. URL http://www.jstatsoft.org/v33/i01/.
 #'
 #' Tibshirani, Robert (1996). Regression Shrinkage and Selection via the lasso. Journal of the Royal Statistical Society. Series B (methodological). Wiley. 58 (1): 267–88. https://www.jstor.org/stable/2346178
+#'
+LASSO = function(x, y, var.names = NULL, family="gaussian", output="html", return.glmnet=FALSE) {
 
-LASSO = function(x, y, var.names = .GlobalEnv$colnames, family="gaussian", output="html", return.glmnet=FALSE) {
+  if (is.null(var.names)==TRUE) {
+    colnames(x) = paste(rep("Var", ncol(x)), as.character(seq(1:ncol(x))))
+  } else if (is.null(var.names)==FALSE) {
+    colnames(x) = var.names
+  }
   x.train = as.matrix(x)
   y.train = as.matrix(y)
-
   set.seed(1)
   cv.glmnet = cv.glmnet(x.train, y.train, alpha=1, nlambda=200, family=family, lambda.min.ratio=0.0001)
+  if (return.glmnet==TRUE) {
+    glmnet.model <<- cv.glmnet
+  }
   coefs.glmnet = as.matrix(coef(cv.glmnet, s="lambda.min"))
-  rownames(coefs.glmnet) = c("(Intercept)",colnames(x))
+  rownames(coefs.glmnet) = c("(Intercept)",var.names)
   coefs.glmnet = coefs.glmnet[ rowSums(coefs.glmnet)!=0, ] # Remove the estimates equal to zero
+  var.names.res = rownames(coefs.glmnet)
   coefs.glmnet = as.data.frame(coefs.glmnet)
   terms = rownames(coefs.glmnet)
   if (output == "console") {
     return(coefs.glmnet)
   } else if (output == "html"){
-    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=NULL))
+    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=var.names.res))
     colnames(coefs.glmnet) =c("term", "estimate")
     coefs.glmnet[,1:2]  %>%
       kable("html",escape = FALSE, digits=3, align='r') %>%
       kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
       add_header_above(c("Glmnet LASSO Regression Coefficients" = 2))
   } else if (output == "markdown") {
-    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=NULL))
+    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=var.names.res))
     colnames(coefs.glmnet) =c("term", "estimate")
     coefs.glmnet[,1:2]  %>%
       kable("markdown",escape = FALSE, digits=3, align='r')
   } else if (output=="latex") {
-    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=NULL))
+    coefs.glmnet  = cbind(terms, data.frame(coefs.glmnet, row.names=var.names.res))
     colnames(coefs.glmnet) =c("term", "estimate")
     coefs.glmnet[,1:2]  %>%
       kable("latex",escape = FALSE, digits=3, align='r') %>%
       kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
       add_header_above(c("Glmnet LASSO Regression Coefficients" = 2))
-
   }
-  if (return.glmnet==TRUE) {
-    glmnet.model <<- cv.glmnet
-  }
-
 }

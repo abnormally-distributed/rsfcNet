@@ -6,9 +6,6 @@
 #' @param node.size A vector of numbers describing the nodes (such as degree)
 #' @param directory Directory for file output. Defaults to current working directory.
 #' @param name A name for the output. Defaults to the current date.
-#'
-#'
-#'
 #' @export
 #' @author Brandon Vaughan
 #'

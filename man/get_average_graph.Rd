@@ -4,15 +4,17 @@
 \alias{get_average_graph}
 \title{Average together a list of connectivity matrices}
 \usage{
-get_average_graph(cormats, n = .GlobalEnv$n)
+get_average_graph(cormats, n = NULL, which = "graph")
 }
 \arguments{
 \item{cormats}{A list of correlation matrices}
 
-\item{n}{The sample size. Checks the global environment for n, but can be directly assigned.}
+\item{n}{The sample size.}
+
+\item{which}{can be "graph" to get an igraph object, "matrix" for a correlation matrix, or "both" for a list of both. Defaults to graph.}
 }
 \value{
-A list containing both the averaged correlation matrix and a corresponding igraph object.
+A matrix, igraph object, or list.
 }
 \description{
 Average together a list of correlation matrices to analyze the typical network properties of a given group (ie, teens vs adults)
