@@ -17,6 +17,8 @@
 #'
 local_trans = function (graphs) 
 {
-     pbapply::pbsapply(graphs, function(g) igraph::transitivity(g, type = "barrat", isolates = "zero"))
+     ltr  = pbapply::pbsapply(graphs, function(g) igraph::transitivity(g, type = "barrat", isolates = "zero"))
+     ltr = t(ltr)
+     return(ltr)
  }
 
