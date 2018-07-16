@@ -52,7 +52,7 @@
 #'
 #' Qi, Xingqin, et al. (2012). Laplacian centrality: A new centrality measure for weighted networks. Information Sciences 194: 240-253.
 #'
-laplacian_centr_mult = function (graphs, col.names = NULL, row.names = NULL, parallel=FALSE, cores=NA)
+laplace_centr_mult = function (graphs, col.names = NULL, row.names = NULL, parallel=FALSE, cores=NA)
     {
 if (parallel==FALSE) {
   laplace_centr = pbapply::pbsapply(graphs, function(x) laplace_centr(x,prog.bar=FALSE))
