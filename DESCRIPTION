@@ -4,7 +4,7 @@ Version: 0.1.1.009
 Authors@R: person("Brandon", "Vaughan", email = "vaughanb@musc.edu", role = c("aut", "cre"))
 Description: This package is a companion to the igraph package which facilitates the analysis of resting state functional MRI data. The package contains several entirely custom-written functions to facilitate the preparation of connectome data for analysis as well as functions for graph theory metrics not available (as of 2018) in igraph. Other functions make applying igraph functions to multiple graphs fast and easy. Some statistical analysis functions are also included for large P and P >> n settings.  Certain functions also have built in parallel processing support. 
 Depends: R (>= 3.3.0),
-	 corpcor (>= 1.1.2),
+	 corpcor (>= 1.1.0),
 	 glmnet (>= 2.0-16),
 	 igraph (>= 1.0.0),
 	 pbapply (>= 1.3-4),

@@ -22,10 +22,12 @@ A matrix containing several modularity/community structure based centrality meas
 This calculates the (within-module) strength star and diversity star metrics proposed by Rubinov and Sporns (2011) along with several other metrics.
 }
 \details{
+
 This calculates the (within-module) strength star and diversity star metrics proposed by Rubinov and Sporns (2011).
 Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star, Participation Coefficient, and percentage of total connections that exist within-module.
 Z-Scores and Participation Coefficient measures are based on the strength (star) of the nodes.
 In the event a binary network is fed, diversity will not be calculated. Participation will be the more appropriate measure.
+
 The percentage of total connectivity is based only on positive strength to avoid negative percentages in the event
 a node has enough negatively weighted edges within its module.
 
