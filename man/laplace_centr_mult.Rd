@@ -4,7 +4,7 @@
 \alias{laplacian_centr_mult}
 \title{Calculate Laplacian centrality for a single graph}
 \usage{
-laplacian_centr_mult(graphs, col.names = NULL, row.names = NULL,
+laplace_centr_mult(graphs, col.names = NULL, row.names = NULL,
   parallel = FALSE, cores = NA)
 }
 \arguments{
