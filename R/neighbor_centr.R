@@ -28,22 +28,27 @@
 #'
 #' Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
 #`
-neighbor_centr = function(graph) {
-if (is.igraph(graph)=="TRUE"){
-  graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE)) }
+neighbor_centr = function (graph) 
+{
+  if (is.igraph(graph) == TRUE) {
+    graph = as.matrix(igraph::as_adjacency_matrix(graph, 
+                                          edges = FALSE, attr = "weight", sparse = TRUE))
+  }
   graph.pos = graph
   graph.neg = graph
-  graph.pos[which(graph<0)] <-0
-  graph.neg[which(graph>0)] <-0
-  graph.neg = graph.adjacency(graph.neg, mode="undirected", weighted=T, diag=TRUE)
-  graph.pos= graph.adjacency(graph.pos, mode="undirected", weighted=T, diag=TRUE)
+  graph.pos[which(graph < 0)] <- 0
+  graph.neg[which(graph > 0)] <- 0
+  graph.neg = igraph::graph.adjacency(graph.neg, mode = "undirected", 
+                              weighted = T, diag = TRUE)
+  graph.pos = igraph::graph.adjacency(graph.pos, mode = "undirected", 
+                              weighted = T, diag = TRUE)
   knn.neg = knn(graph.neg, vids = V(graph.neg), weights = E(graph.neg)$weight)$knn
   knn.neg[which(is.na(knn.neg))] <- 0
-  knn.pos[which(is.na(knn.pos))] <- 0
   knn.pos = knn(graph.pos, vids = V(graph.pos), weights = E(graph.pos)$weight)$knn
-  knn.neg = (knn.neg/(knn.pos+knn.neg))*knn.neg
+  knn.pos[which(is.na(knn.pos))] <- 0
+  knn.neg = (knn.neg/(knn.pos + knn.neg)) * knn.neg
   knn.neg[which(is.na(knn.neg))] <- 0
-  knn.star = knn.pos-knn.neg
+  knn.star = knn.pos - knn.neg
   knn.star[which(is.na(knn.star))] <- 0
   return(knn.star)
 }
