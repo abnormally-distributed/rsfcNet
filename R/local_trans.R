@@ -15,7 +15,8 @@
 #' @references
 #' Barrat A, Barthélemy M, Pastor-Satorras R, Vespignani A. The architecture of complex weighted networks. Proceedings of the National Academy of Sciences of the United States of America. 2004;101(11):3747-3752. doi:10.1073/pnas.0400087101.
 #'
-local_trans = function(graphs) {
-  pbapply::pbsapply(graphs,type="barratt", isolates="zero")
-}
+> local_trans = function (graphs) 
+{
+     pbapply::pbsapply(graphs, function(g) igraph::transitivity(g, type = "barrat", isolates = "zero"))
+ }
 
