@@ -38,7 +38,6 @@ leverage_centr_mult = function(graphs, weighted=FALSE, col.names=NULL, row.names
 
   if (parallel==FALSE) {
     lev = pbapply::pbsapply(graphs, function(g) leverage_centr(g, weighted=weighted))
-    lev = t(lev)
     rownames(lev) = row.names
     colnames(lev) = col.names
     return(lev)
@@ -58,7 +57,6 @@ leverage_centr_mult = function(graphs, weighted=FALSE, col.names=NULL, row.names
 
     lev = parallel::parSapply(cl,graphs, function(x) rsfcNet::leverage_centr(x, weighted=weighted))
     stopCluster(cl)
-    lev = t(lev)
     colnames(lev) = col.names
     rownames(lev) = row.names
     lev = as.matrix(lev)
