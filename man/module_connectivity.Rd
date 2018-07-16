@@ -4,8 +4,7 @@
 \alias{module_connectivity}
 \title{Calculate several module/community based network statistics}
 \usage{
-module_connectivity(graph, modules, scale = FALSE,
-  n.nodes = .GlobalEnv$n.nodes)
+module_connectivity(graph, modules, scale = FALSE, n.nodes = NULL)
 }
 \arguments{
 \item{graph}{a single network in matrix format or as an igraph object}
@@ -31,11 +30,7 @@ The percentage of total connectivity is based only on positive strength to avoid
 a node has enough negatively weighted edges within its module.
 
 Diversity star is calculated by weighting the diversity coeffecient for positive and negative
-connections, which are calculated according to the formula below:
-
-\eqn{h_i^\pm=-\frac1{\text{log}m}\sum_{u\in M}p_i^\pm\left(u\right)\text{log}p_i^\pm\left(u\right)\text{,}}
-
-where p_i^\pm\left(u\right)=\frac{s_i^\pm\left(u\right)}{s_i^\pm}
+connections
 }
 \examples{
 module_statistics = module_connectivity(graph, module_labels)

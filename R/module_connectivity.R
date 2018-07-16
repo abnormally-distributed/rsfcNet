@@ -17,11 +17,7 @@
 #' a node has enough negatively weighted edges within its module.
 #'
 #' Diversity star is calculated by weighting the diversity coeffecient for positive and negative
-#' connections, which are calculated according to the formula below:
-#'
-#' \eqn{h_i^\pm=-\frac1{\text{log}m}\sum_{u\in M}p_i^\pm\left(u\right)\text{log}p_i^\pm\left(u\right)\text{,}}
-#'
-#' where p_i^\pm\left(u\right)=\frac{s_i^\pm\left(u\right)}{s_i^\pm}
+#' connections
 #'
 #'
 #' @examples
@@ -33,7 +29,7 @@
 #'
 #' Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
 #'
-module_connectivity = function(graph, modules, scale=FALSE, n.nodes=.GlobalEnv$n.nodes) {
+module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL) {
 
    if (is.igraph(graph)=="TRUE"){
     graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE)) }

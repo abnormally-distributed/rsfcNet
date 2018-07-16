@@ -1,8 +1,8 @@
 #' Create Gephi File from graph object
 #'
 #' @param graph An igraph object
-#' @param node.names A vector of node labels. By default searches global environemnt for a vector titled "colnames".
-#' @param node.attributes A vector or data frame of different metrics describing the nodes (ie, modularity, degree).
+#' @param node_names A vector of node labels. By default searches global environemnt for a vector titled "colnames".
+#' @param node_attributes A vector or data frame of different metrics describing the nodes (ie, modularity, degree).
 #' @param directory Character vector specifyig directory for file output. Defaults to current working directory.
 #' @param name A name for the output. Defaults to the current date.
 #'
@@ -21,8 +21,8 @@
 #'
 #' https://gephi.org/
 #
-write_gephi = function(graph, node_attributes, directory=getwd(), name=Sys.Date(), node.names = .GlobalEnv$colnames) {
-  nodes_df = data.frame(ID = c(1:vcount(graph)), NAME = node.names)
+write_gephi = function(graph, node_attributes, directory=getwd(), name=Sys.Date(), node_names = NULL) {
+  nodes_df = data.frame(ID = c(1:vcount(graph)), NAME = node_names)
   edges_att = data.frame(EDGE.WEIGHT= E(graph)$weight)
   edges_df = as.data.frame(get.edges(graph, c(1:ecount(graph))))
   nodes_coord_a = as.data.frame(layout.auto(graph, weights = E(graph)$weight, niter = 50))

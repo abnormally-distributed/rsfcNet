@@ -5,18 +5,18 @@
 \title{Create Gephi File from graph object}
 \usage{
 write_gephi(graph, node_attributes, directory = getwd(), name = Sys.Date(),
-  node.names = .GlobalEnv$colnames)
+  node_names = NULL)
 }
 \arguments{
 \item{graph}{An igraph object}
+
+\item{node_attributes}{A vector or data frame of different metrics describing the nodes (ie, modularity, degree).}
 
 \item{directory}{Character vector specifyig directory for file output. Defaults to current working directory.}
 
 \item{name}{A name for the output. Defaults to the current date.}
 
-\item{node.names}{A vector of node labels. By default searches global environemnt for a vector titled "colnames".}
-
-\item{node.attributes}{A vector or data frame of different metrics describing the nodes (ie, modularity, degree).}
+\item{node_names}{A vector of node labels. By default searches global environemnt for a vector titled "colnames".}
 }
 \description{
 Create Gephi File from graph object
