@@ -4,12 +4,14 @@
 \alias{threshold_matrix}
 \title{Threshold a correlation matrix}
 \usage{
-threshold_matrix(c, q = 0.9)
+threshold_matrix(c, method = "quantile", q.thresh = 0.9, thresh)
 }
 \arguments{
 \item{c}{The network either as connectivity matrix or as an igraph object.}
 
-\item{q}{The quantile to threshold. Defaults to .90, such that all below the 90th quantile are set to zero.}
+\item{q.thresh}{The quantile to threshold. Defaults to .90, such that all below the 90th quantile are set to zero.}
+
+\item{thresh}{The number (taken to be an absolute value) below which to threshold (ie, correlation or cohen's d , etc). No default. Recommend .10 for correlation or .20 for cohen's d.}
 }
 \value{
 The pruned correlation matrix.

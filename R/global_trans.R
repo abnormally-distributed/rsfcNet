@@ -16,6 +16,6 @@
 #' Wasserman, S., and Faust, K. (1994). Social Network Analysis: Methods and Applications. Cambridge: Cambridge University Press.
 
 global_trans = function(graphs) {
- pbapply::pbsapply(graphs,type="global", isolates="zero")
+pbapply::pbsapply(graphs, function(g) igraph::transitivity(g, type="global", isolates="zero"))
 }
 

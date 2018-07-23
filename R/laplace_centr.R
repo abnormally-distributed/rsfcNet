@@ -73,7 +73,6 @@ laplace_centr <- function (graph, prog.bar=TRUE){
     strength.star <- as.vector(sapply(1:n.nodes, function(r) norm.strength[r,1] - (norm.strength[r,2]/(norm.strength[r,1]+norm.strength[r,2])*norm.strength[r,2])))
     strength.star[which(strength.star < 0)] <- 0
     strength.star
-
   }
 
 

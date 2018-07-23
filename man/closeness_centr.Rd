@@ -17,7 +17,7 @@ closeness_centr(graphs, col.names = NULL, row.names = NULL)
 A matrix of the closeness centralities of each node for each subject.
 }
 \description{
-This function is a convenience wrapper for igraph's closeness function and takes as an input a list of igraph objects. ECV is calculated on the absolute values of the correlation matrix per Lohmann et al, 2010. ECV is standardized subject-wise to 0-1 range for consistency.
+This function is a convenience wrapper for igraph's closeness function and takes as an input a list of igraph objects.
 }
 \details{
 Closeness centrality (in the normalized form given here) gives the average shortest path length

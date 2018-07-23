@@ -9,5 +9,5 @@
 #' graphs = mats_to_graphs(cormats)
 #'
 mats_as_graphs = function(cormats) {
-  pbapply::pblapply(cormats, function(x) graph.adjacency(x, weighted=T, mode="undirected", diag=TRUE))
+  pbapply::pblapply(1:length(cormats), function(x) {graph.adjacency(cormats[[x]], weighted=T, mode="undirected", diag=TRUE)})
 }
