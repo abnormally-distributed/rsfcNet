@@ -8,7 +8,7 @@ btwn_centr(graphs, col.names = NULL, row.names = NULL, parallel = FALSE,
   cores = NA)
 }
 \arguments{
-\item{graphs}{a list of igraph objects.}
+\item{graphs}{A list of igraph objects.}
 
 \item{col.names}{The names of each column (node labels).}
 

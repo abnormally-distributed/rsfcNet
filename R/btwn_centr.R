@@ -1,7 +1,7 @@
 #' Calculate betweenness centrality for all nodes for multiple subjects.
 #'
 #' This function is a convenience wrapper for igraph's betweenness centrality function and takes as an input a list of igraph objects.
-#' @param graphs a list of igraph objects.
+#' @param graphs A list of igraph objects.
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
 #' @param parallel Should multiple cores be used? Defaults to FALSE. If TRUE, progress bar is not displayed. This is normal.
