@@ -27,7 +27,8 @@
 
 leverage_centr = function(graph, weighted=FALSE){
   if (weighted==TRUE){
-  k <- strength(graph)
+  k <- strength_signed(graph)$strength_star
+  k <- (k-min(k))/(max(k)-min(k))
   n <- vcount(graph)
   l = sapply(1:n, function(v) { mean((k[v]-k[neighbors(graph,v)]) / (k[v]+k[neighbors(graph,v)])) })
   l[which(l=="NaN")] <- 0

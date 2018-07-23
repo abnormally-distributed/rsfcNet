@@ -13,11 +13,13 @@
 #' Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star, Participation Coefficient, and percentage of total connections that exist within-module.
 #' Z-Scores and Participation Coefficient measures are based on the strength (star) of the nodes.
 #' In the event a binary network is fed, diversity will not be calculated. Participation will be the more appropriate measure.
-#' The percentage of total connectivity is based only on positive strength to avoid negative percentages in the event
-#' a node has enough negatively weighted edges within its module.
+#' The percentage of positive intra-module connections for each node out of the total positive-weight connetions
+#' is also provided, along with the same measure for negative connections. A node that is well-integrated
+#' into a community/module should arguably have more a high percentage of its total positive connections inside the module,
+#' and a relatively low percentage of its negative connections within the module.
 #'
 #' Diversity star is calculated by weighting the diversity coeffecient for positive and negative
-#' connections
+#' connections.
 #'
 #'
 #' @examples
@@ -61,13 +63,18 @@ module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL) {
   hneg[hneg == Inf] <-  0
   hneg[hneg == -Inf] <- 0
 
-  diversity_star = hplus - (sorted.net$neg.network/(sorted.net$neg.network+sorted.net$pos.network))*hneg
+  if (all(graph >= 0)=="TRUE") {
+    diversity_star = diversity(graph)
+  } else {
+    diversity_star = hplus - (sorted.net$neg.network/(sorted.net$neg.network+sorted.net$pos.network))*hneg
+  }
+
   ## Get Participation Coefficient
 
   participation = (1-(sorted.net$module.star/sorted.net$star.network))^2
-  PctTotalCon = sorted.net$module.star/sorted.net$pos.network
-
-  participation.stats = cbind.data.frame(module.strength=sorted.net$module.star, network.strength=sorted.net$star.network,PctTotalCon, participation)
+  PctTotalPosCon = sorted.net$module.pos/sorted.net$pos.network
+  PctTotalNegCon = sorted.net$module.neg/sorted.net$neg.network
+  participation.stats = cbind.data.frame(module.strength=sorted.net$module.star, network.strength=sorted.net$star.network,PctTotalPosCon, PctTotalNegCon, participation)
 
   ## Within Module Z-Score (based on strength star)
 

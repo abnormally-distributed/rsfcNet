@@ -37,7 +37,6 @@
 #' Built around code translated from python. Original python code available at \url{http://igraph.wikidot.com/python-recipes#toc3}
 #'
 #'
-#'
 #' @examples
 #' LPL= laplace_centr(graph)
 #'
