@@ -5,11 +5,7 @@
 #' @param prog.bar Should a progress bar be displayed? Defaults to TRUE.
 #' @return A vector of the Laplacian centrality scores.
 #' @author Brandon Vaughan
-#' @references
-#'
-#' Pauls, S.D., & Remondini, D. (2012). A measure of centrality based on the spectrum of the Laplacian. Physical review. E, Statistical, nonlinear, and soft matter physics, 85 6 Pt 2, 066127.
-#'
-#' Qi, Xingqin, et al. (2012). Laplacian centrality: A new centrality measure for weighted networks. Information Sciences 194: 240-253.
+#' @export
 #'
 #' @details
 #' To first understand Laplacian centrality the concept of the Laplacian matrix must be understood.
@@ -43,14 +39,19 @@
 #'
 #'
 #' @examples
-#' laplace_centr(graph)
+#' LPL= laplace_centr(graph)
 #'
 #' @seealso
-#' \code{\link[rsfcNet]{laplace_centr_mult}}
-#' \code{\link[rsfcNet]{leverage_centr}}
-#' \code{\link[rsfcNet]{leverage_centr_mult}}
+#' \link[rsfcNet]{laplace_centr_mult}
+#' \link[rsfcNet]{leverage_centr}
+#' \link[rsfcNet]{leverage_centr_mult}
 #'
-#' @export
+#' @references
+#'
+#' Pauls, S.D., & Remondini, D. (2012). A measure of centrality based on the spectrum of the Laplacian. Physical review. E, Statistical, nonlinear, and soft matter physics, 85 6 Pt 2, 066127.
+#'
+#' Qi, Xingqin, et al. (2012). Laplacian centrality: A new centrality measure for weighted networks. Information Sciences 194: 240-253.
+
 
 laplace_centr <- function (graph, prog.bar=TRUE){
 
