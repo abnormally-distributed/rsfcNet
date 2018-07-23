@@ -44,22 +44,21 @@ is given by the formula below:
 
 \eqn{\Delta E_{n}=s_{G}^{2}(n)+s_{G}(n)+2\sum_{n _{i}\in N(n)}s_{G}(n_{i})}
 
-This measure is very appropriate to the study of brain networks as it can charaterize the expected change
-in network energy if a region where removed from the brain.
+Built around code translated from python. Original python code available at \url{http://igraph.wikidot.com/python-recipes#toc3}
 }
 \examples{
-laplace_centr(graph)
-
- @seealso
-\\code{\\link[rsfcNet]{laplace_centr_mult}}
-\\code{\\link[rsfcNet]{leverage_centr}}
-\\code{\\link[rsfcNet]{leverage_centr_mult}}
+LPL= laplace_centr(graph)
 
 }
 \references{
 Pauls, S.D., & Remondini, D. (2012). A measure of centrality based on the spectrum of the Laplacian. Physical review. E, Statistical, nonlinear, and soft matter physics, 85 6 Pt 2, 066127.
 
 Qi, Xingqin, et al. (2012). Laplacian centrality: A new centrality measure for weighted networks. Information Sciences 194: 240-253.
+}
+\seealso{
+\link[rsfcNet]{laplace_centr_mult}
+\link[rsfcNet]{leverage_centr}
+\link[rsfcNet]{leverage_centr_mult}
 }
 \author{
 Brandon Vaughan
