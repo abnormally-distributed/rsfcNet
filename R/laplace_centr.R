@@ -45,7 +45,7 @@
 #' @examples
 #' laplace_centr(graph)
 #'
-#'  @seealso
+#' @seealso
 #' \code{\link[rsfcNet]{laplace_centr_mult}}
 #' \code{\link[rsfcNet]{leverage_centr}}
 #' \code{\link[rsfcNet]{leverage_centr_mult}}
