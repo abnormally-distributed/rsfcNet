@@ -26,11 +26,13 @@ This calculates the (within-module) strength star and diversity star metrics pro
 Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star, Participation Coefficient, and percentage of total connections that exist within-module.
 Z-Scores and Participation Coefficient measures are based on the strength (star) of the nodes.
 In the event a binary network is fed, diversity will not be calculated. Participation will be the more appropriate measure.
-The percentage of total connectivity is based only on positive strength to avoid negative percentages in the event
-a node has enough negatively weighted edges within its module.
+The percentage of positive intra-module connections for each node out of the total positive-weight connetions
+is also provided, along with the same measure for negative connections. A node that is well-integrated
+into a community/module should arguably have more a high percentage of its total positive connections inside the module,
+and a relatively low percentage of its negative connections within the module.
 
 Diversity star is calculated by weighting the diversity coeffecient for positive and negative
-connections
+connections.
 }
 \examples{
 module_statistics = module_connectivity(graph, module_labels)
