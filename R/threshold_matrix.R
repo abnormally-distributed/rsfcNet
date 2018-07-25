@@ -17,8 +17,12 @@ threshold_matrix = function(c, method="quantile", q.thresh=.90, thresh){
   if (is.igraph(c)=="TRUE"){
   c = as.matrix(igraph::as_adjacency_matrix(c, edges = FALSE, attr = "weight", sparse=TRUE)) }
   if (method=="quantile") {
+    c = transform_matrix(c, method="fishers.z")
     threshold = quantile(abs(c), q.thresh)
     c[which(c<threshold)] <- 0; c
+    c = transform_matrix(c, method="undo.z")
+    diag(c) <- 0
+    return(c)	
   }
 
 }

@@ -2,6 +2,7 @@
 
 export(LASSO)
 export(bad_ts)
+export(binarize)
 export(btwn_centr)
 export(closeness_centr)
 export(clustcoef_signed)
