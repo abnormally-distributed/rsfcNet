@@ -8,6 +8,6 @@
 #' @examples
 #' binarize(graph)
 #'
-binarize = function (c, q = 0.9, method="quantile") {
+binarize = function (c) {
   abs(sign(c))
 }

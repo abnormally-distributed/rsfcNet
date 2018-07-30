@@ -4,7 +4,7 @@
 \alias{binarize}
 \title{Binarize a correlation matrix.}
 \usage{
-binarize(c, q = 0.9, method = "quantile")
+binarize(c)
 }
 \arguments{
 \item{c}{The correlation matrix.}

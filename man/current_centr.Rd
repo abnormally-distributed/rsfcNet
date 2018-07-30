@@ -30,6 +30,7 @@ of a graph. This code is modified from the code in the centiserve package.
 }
 \examples{
 current_centr(graph)
+
 }
 \references{
 Brandes U., Fleischer D. (2005) Centrality Measures Based on Current Flow. In: Diekert V., Durand B. (eds) STACS 2005. STACS 2005. Lecture Notes in Computer Science, vol 3404. Springer, Berlin, Heidelberg
