@@ -11,9 +11,8 @@
 #' threshold_matrix(matrix, q=.90) # This should threshold such that only positive values are returned.
 #' threshold_matrix(abs(matrix), q=.90) # Taking the absolute value of the matrix will allow negative correlations sufficiently strong to be included as an edge. This does not preserve signs.
 #' threshold_matrix(abs(matrix), q=.90)*sign(matrix) This will restore the signs after thresholding if desired.
-
+#'
 threshold_matrix = function(c, method="quantile", q.thresh=.90, thresh){
-
   if (is.igraph(c)=="TRUE"){
   c = as.matrix(igraph::as_adjacency_matrix(c, edges = FALSE, attr = "weight", sparse=TRUE)) }
   if (method=="quantile") {
@@ -22,9 +21,8 @@ threshold_matrix = function(c, method="quantile", q.thresh=.90, thresh){
     c[which(c<threshold)] <- 0; c
     c = transform_matrix(c, method="undo.z")
     diag(c) <- 0
-    return(c)	
+    return(c)
   }
-
 }
 
 #' Transform a correlation matrix into cohen's d or z-scores and back
@@ -37,7 +35,7 @@ threshold_matrix = function(c, method="quantile", q.thresh=.90, thresh){
 #' @author Brandon Vaughan
 #' @examples
 #' transform_matrix(matrix, method="cohens.d") # This should threshold such that only positive values are returned.
-
+#'
 transform_matrix = function(c, method="cohens.d") {
   if (method=="cohens.d") {
     2 * c/sqrt(1 - c^2)

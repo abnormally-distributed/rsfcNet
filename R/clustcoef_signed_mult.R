@@ -26,8 +26,10 @@
 #' \link[igraph]{transitivity}
 #' \link[rsfcNet]{clustcoef_signed}
 #'
-#' @example
+#' @examples
+#' **##Not run**
 #' clustcoef_signed_mult(graphs)
+#' ## End(**Not run**)
 #'
 #' @references
 #' \href{https://sites.google.com/site/bctnet/measures/list}{Brain Connectivity Toolbox}

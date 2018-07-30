@@ -32,6 +32,12 @@ with modifications to make the output as in the matlab script
 clustering_coef_w_sign in the Brain Connectivity Toolbox. The Onella method is excluded due to similarities with the Barrat (available as the local_clustcoef
 function in this package) and Zhang methods.
 }
+\examples{
+**##Not run**
+clustcoef_signed_mult(graphs)
+## End(**Not run**)
+
+}
 \references{
 \href{https://sites.google.com/site/bctnet/measures/list}{Brain Connectivity Toolbox}
 

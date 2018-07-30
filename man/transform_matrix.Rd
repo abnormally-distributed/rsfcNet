@@ -19,6 +19,7 @@ This function is used to transform correlation matrices into other units such as
 }
 \examples{
 transform_matrix(matrix, method="cohens.d") # This should threshold such that only positive values are returned.
+
 }
 \author{
 Brandon Vaughan

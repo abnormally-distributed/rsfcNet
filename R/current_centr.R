@@ -31,6 +31,7 @@
 #'
 #' @examples
 #' current_centr(graph)
+#'
 current_centr = function (graph) {
   if (igraph::is.igraph(graph)==FALSE){
     graph = igraph::graph.adjacency(graph, mode="undirected", weighted=T, diag=FALSE)
@@ -98,8 +99,8 @@ current_centr = function (graph) {
 #'
 #' @examples
 #' current_centr_mult(graph)
-
-current_centr_mult = function(graphs, col.names = NULL, row.names = NULL, parallel=FALSE, cores=NA){
+#'
+current_centr_mult = function(graphs, col.names = NULL, row.names = NULL, parallel=TRUE, cores=NA){
   if (parallel==FALSE){
   current.centrality = pbapply::pbsapply(graphs, function(x) current_centr(x))
   current.centrality = t(current.centrality)

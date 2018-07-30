@@ -5,7 +5,7 @@
 \title{Find current-flow closeness centrality for a list of graphs}
 \usage{
 current_centr_mult(graphs, col.names = NULL, row.names = NULL,
-  parallel = FALSE, cores = NA)
+  parallel = TRUE, cores = NA)
 }
 \arguments{
 \item{graphs}{A list of igraph objects or connectivity matrices}
@@ -39,6 +39,7 @@ of a graph. This code is modified from the code in the centiserve package.
 }
 \examples{
 current_centr_mult(graph)
+
 }
 \references{
 Brandes U., Fleischer D. (2005) Centrality Measures Based on Current Flow. In: Diekert V., Durand B. (eds) STACS 2005. STACS 2005. Lecture Notes in Computer Science, vol 3404. Springer, Berlin, Heidelberg
