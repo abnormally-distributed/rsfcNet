@@ -1,4 +1,4 @@
-#' Calculate signed clustering coeffecient for a multiple graphs
+#' Calculate signed clustering coeffecient for a list of graphs.
 #'
 #' Calculate the signed clustering coeffecient (local transitivity) for a list of graphs using
 #' either the Zhang & Horvath method or the Constantini & Perugini method.

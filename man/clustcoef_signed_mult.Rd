@@ -2,7 +2,7 @@
 % Please edit documentation in R/clustcoef_signed_mult.R
 \name{clustcoef_signed_mult}
 \alias{clustcoef_signed_mult}
-\title{Calculate signed clustering coeffecient for a multiple graphs}
+\title{Calculate signed clustering coeffecient for a list of graphs.}
 \usage{
 clustcoef_signed_mult(graphs, method = "Constantini")
 }

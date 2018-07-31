@@ -1,26 +1,24 @@
 #' Get the consensus community membership labels
 #'
-#' Get the consensus community memberships for multiple subjects or multiple iterations of an algorithm over a single graph.
+#' Get the consensus community memberships for multiple graphs or multiple iterations of an algorithm over a single graph.
 #'
 #' @param modules a matrix containing membership labels across each row for each node (represented by column).
-#' @param node.names custom node names if desired
 #' @export
 #' @author Brandon Vaughan
 #'
-#' @details Gets a consensus on module membership for modules that have clear membership. The rest are left unsorted as "wanderers".
-#' An overall crude method of getting consensus, but relaxes the assumption that all nodes in a network must belong to a module.
+#' @details Gets the consensus for modules
 #'
 #' @examples
 #' **##Not run**
-#' modularity_consensus(module_list, node.names=brain_regions)
+#' modularity_consensus(module_list)
 #'  ## End(**Not run**)
 #'
-modularity_consensus =  function(modules, node.names="NA"){
+modularity_consensus =  function(modules){
 
-  if (node.names=="NA"){
+
     node.count = ncol(modules)
     node.names <- as.character(seq(1:node.count))
-  }
+    colnames(modules) = node.names
 
     output=list()
     for (i in 1:nrow(modules)){
@@ -89,9 +87,15 @@ modularity_consensus =  function(modules, node.names="NA"){
         # use the partition of the first method when no majority exists
         # (this allows ordering of partitions by decreasing modularity values for instance)
         index.best=which(temp[1,]==TRUE)
+
         module[[index.best]]=c(module[[index.best]],wanderers[pp])
       }
     }
-    output=list(module=module,wanderers=wanderers)
-    return(output)
+    module = lapply(module, function(m) as.numeric(m))
+    membership = module
+    membership = unlist(lapply(1:length(membership), function(i) rep(i, length(membership[[i]]))))
+    membership = cbind(unlist(lapply(1:length(membership), function(i) rep(i, length(membership[[i]])))), unlist(module))
+    membership = membership[order(membership[,2])]
+    module = list(groups=module, membership=membership)
+    return(module)
 }

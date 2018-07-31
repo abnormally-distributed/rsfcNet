@@ -35,7 +35,7 @@ Current flow centrality is somewhat mathematically involved, but the final formu
 \eqn{\displaystyle{\sum_j A_{i,j} (v_{i}^{(s,t)} - v_{j}^{(s,t)}) = u_{i}^{(s,t)}}$}.
 
 See the website in the references for a full explanation. The method involves calculating the laplacian representation
-of a graph. This code is modified from the code in the centiserve package.
+of a graph.
 }
 \examples{
 current_centr_mult(graph)

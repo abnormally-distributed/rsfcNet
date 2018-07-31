@@ -74,14 +74,13 @@ current_centr = function (graph) {
 #' \eqn{\displaystyle{\sum_j A_{i,j} (v_{i}^{(s,t)} - v_{j}^{(s,t)}) = u_{i}^{(s,t)}}$}.
 #'
 #' See the website in the references for a full explanation. The method involves calculating the laplacian representation
-#' of a graph. This code is modified from the code in the centiserve package.
+#' of a graph.
 #'
 #' @param graphs A list of igraph objects or connectivity matrices
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
 #' @param parallel Should multiple cores be used? Defaults to FALSE. If TRUE, progress bar is not displayed. This is normal.
 #' @param cores How many cores should be used? Defaults to recommended 1 less than number of CPU cores.
-
 #'
 #' @return A matrix contaning the centrality scores.
 #' @author Brandon Vaughan

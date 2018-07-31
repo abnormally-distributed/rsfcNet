@@ -23,7 +23,7 @@
 #'
 #'
 #' @examples
-#' module_statistics = module_connectivity(graph, module_labels)
+#' module_statistics = module_connectivity(graph, module)
 #'
 #' @references
 #'
@@ -31,15 +31,23 @@
 #'
 #' Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
 #'
-module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL) {
+module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL, consensus.output=FALSE) {
 
    if (is.igraph(graph)=="TRUE"){
     graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE)) }
 
   matrix.mod = graph
-  diag(matrix.mod) = 0
-  module_citizens = lapply(1:length(unique(modules$membership)), function(u) which(modules$membership==u))
-  module_matrices = lapply(1:length(unique(modules$membership)), function(m) matrix.mod[module_citizens[[m]],module_citizens[[m]]])
+  diag(matrix.mod) <- 0
+
+  if (consensus.output==TRUE) {
+    module_citizens = modules$groups
+    module_matrices = lapply(1:length(unique(module_citizens)), function(m) matrix.mod[module_citizens[[m]],module_citizens[[m]]])
+  } else {
+    module_citizens = lapply(1:length(unique(modules$membership)), function(u) which(modules$membership==u))
+    module_matrices = lapply(1:length(unique(modules$membership)), function(m) matrix.mod[module_citizens[[m]],module_citizens[[m]]])
+  }
+
+
 
   strength_modules = lapply(module_matrices, function(m) strength_signed(m, scale=scale))
   positive_strengths = lapply(strength_modules, function(m) m$positive_strength)
