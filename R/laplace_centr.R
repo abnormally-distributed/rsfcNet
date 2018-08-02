@@ -1,4 +1,4 @@
-#' Calculate Laplacian centrality for a single graph
+#' Calculate Laplacian centrality for a single graph.
 #'
 #' This calculates the Laplacian centrality metric for a graph.
 #' @param graph A network as an igraph object. This function works much better on a network with thresholding applied.

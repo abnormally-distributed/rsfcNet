@@ -4,23 +4,20 @@
 \alias{modularity_consensus}
 \title{Get the consensus community membership labels}
 \usage{
-modularity_consensus(modules, node.names = "NA")
+modularity_consensus(modules)
 }
 \arguments{
 \item{modules}{a matrix containing membership labels across each row for each node (represented by column).}
-
-\item{node.names}{custom node names if desired}
 }
 \description{
-Get the consensus community memberships for multiple subjects or multiple iterations of an algorithm over a single graph.
+Get the consensus community memberships for multiple graphs or multiple iterations of an algorithm over a single graph.
 }
 \details{
-Gets a consensus on module membership for modules that have clear membership. The rest are left unsorted as "wanderers".
-An overall crude method of getting consensus, but relaxes the assumption that all nodes in a network must belong to a module.
+Gets the consensus for modules
 }
 \examples{
 **##Not run**
-modularity_consensus(module_list, node.names=brain_regions)
+modularity_consensus(module_list)
  ## End(**Not run**)
 
 }

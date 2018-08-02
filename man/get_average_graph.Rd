@@ -20,8 +20,10 @@ A matrix, igraph object, or list.
 Average together a list of correlation matrices to analyze the typical network properties of a given group (ie, teens vs adults)
 }
 \examples{
+\donttest{
 cormats = get_cor_matrices(scrubbed_ts_list) #Get the correlation matrices first
 graphs = get_average_graph(cormats)
+}
 
 }
 \author{

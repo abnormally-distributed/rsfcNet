@@ -2,7 +2,7 @@
 % Please edit documentation in R/laplace_centr.R
 \name{laplace_centr}
 \alias{laplace_centr}
-\title{Calculate Laplacian centrality for a single graph}
+\title{Calculate Laplacian centrality for a single graph.}
 \usage{
 laplace_centr(graph, prog.bar = TRUE)
 }

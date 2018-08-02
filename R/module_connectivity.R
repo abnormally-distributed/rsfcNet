@@ -9,13 +9,18 @@
 #' @export
 #' @author Brandon Vaughan
 #'
-#' @details This calculates the (within-module) strength star and diversity star metrics proposed by Rubinov and Sporns (2011).
-#' Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star, Participation Coefficient, and percentage of total connections that exist within-module.
+#' @details This calculates the (within-module) strength star and diversity star
+#'  metrics proposed by Rubinov and Sporns (2011).
+#' Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star,
+#' Participation Coefficient, and percentage of total connections that exist within-module.
 #' Z-Scores and Participation Coefficient measures are based on the strength (star) of the nodes.
-#' In the event a binary network is fed, diversity will not be calculated. Participation will be the more appropriate measure.
-#' The percentage of positive intra-module connections for each node out of the total positive-weight connetions
+#' In the event a binary network is fed, diversity will not be calculated.
+#' Participation will be the more appropriate measure.
+#' The percentage of positive intra-module connections for each
+#' node out of the total positive-weight connetions
 #' is also provided, along with the same measure for negative connections. A node that is well-integrated
-#' into a community/module should arguably have more a high percentage of its total positive connections inside the module,
+#' into a community/module should arguably have more a high percentage of its total
+#' positive connections inside the module,
 #' and a relatively low percentage of its negative connections within the module.
 #'
 #' Diversity star is calculated by weighting the diversity coeffecient for positive and negative
@@ -23,7 +28,9 @@
 #'
 #'
 #' @examples
-#' module_statistics = module_connectivity(graph, module)
+#' \dontrun {
+#' module_stats = module_connectivity(graph, module)
+#' }
 #'
 #' @references
 #'
@@ -31,6 +38,7 @@
 #'
 #' Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069
 #'
+
 module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL, consensus.output=FALSE) {
 
    if (is.igraph(graph)=="TRUE"){
@@ -46,8 +54,6 @@ module_connectivity = function(graph, modules, scale=FALSE, n.nodes=NULL, consen
     module_citizens = lapply(1:length(unique(modules$membership)), function(u) which(modules$membership==u))
     module_matrices = lapply(1:length(unique(modules$membership)), function(m) matrix.mod[module_citizens[[m]],module_citizens[[m]]])
   }
-
-
 
   strength_modules = lapply(module_matrices, function(m) strength_signed(m, scale=scale))
   positive_strengths = lapply(strength_modules, function(m) m$positive_strength)

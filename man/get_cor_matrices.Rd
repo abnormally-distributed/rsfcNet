@@ -74,7 +74,9 @@ on full-edged dense networks to be able to calculate results. Further thresholdi
 off simply by setting pre.thresh=FALSE.
 }
 \examples{
+\donttest{
 cormats = get_cor_matrices(scrubbed_ts_list)
+}
 
 }
 \references{
@@ -92,7 +94,7 @@ Zhu, Y., & Cribben, I. (2018). Sparse Graphical Models for Functional Connectivi
 }
 \seealso{
 \code{\link[rsfcNet]{threshold_matrix}}
-\code{\link[rsfcNet]{threshold_and_binarize}}
+\code{\link[rsfcNet]{binarize}}
 }
 \author{
 Brandon Vaughan

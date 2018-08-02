@@ -8,8 +8,10 @@
 #' @export
 #' @author Brandon Vaughan
 #' @examples
+#' \donttest{
 #' cormats = get_cor_matrices(scrubbed_ts_list) #Get the correlation matrices first
 #' graphs = get_average_graph(cormats)
+#' }
 #'
 get_average_graph = function(cormats, n=NULL, which="graph"){
   n=length(cormats)

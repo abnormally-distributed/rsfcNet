@@ -2,7 +2,7 @@
 % Please edit documentation in R/laplace_centr_mult.R
 \name{laplace_centr_mult}
 \alias{laplace_centr_mult}
-\title{Calculate Laplacian centrality for a single graph}
+\title{Calculate Laplacian centrality for a list of graphs.}
 \usage{
 laplace_centr_mult(graphs, col.names = NULL, row.names = NULL,
   parallel = FALSE, cores = NA)

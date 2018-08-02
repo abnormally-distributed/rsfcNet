@@ -2,22 +2,18 @@
 % Please edit documentation in R/degree_centr.R
 \name{degree_centr}
 \alias{degree_centr}
-\title{Calculate degree centrality for all nodes for multiple subjects.}
+\title{Calculate degree centrality for a single graph.}
 \usage{
-degree_centr(graphs, col.names = NULL, row.names = NULL)
+degree_centr(graph)
 }
 \arguments{
-\item{graphs}{a list of igraph objects.}
-
-\item{col.names}{The names of each column (node labels).}
-
-\item{row.names}{The names of each row (subject).}
+\item{graph}{A network as an igraph object or connectivity matrix.}
 }
 \value{
-A matrix of the degree centralities of each node for each subject.
+A vector of centrality scores for each node.
 }
 \description{
-This function is a convenience wrapper for igraph's degree function and takes as an input a list of igraph objects.
+This function is a convenience wrapper for igraph's degree function for naming consistency with other rsfcNet functions.
 }
 \details{
 Degree centrality is simply the sum of present connections of node i to each other jth node:
@@ -27,14 +23,15 @@ Degree centrality is simply the sum of present connections of node i to each oth
 For the weighted version of degree, see the functions for calculating strength.
 }
 \examples{
-degree = degree_centr(graphs,row.names = subj_numbers,col.names = node_labels)
+
+degree = degree_centr(graph)
 
 }
 \references{
 Fornito, A., Zalesky, A., & Bullmore, E. (2016). Node Degree and Strength. Chapter 4. Fundamentals of Brain Network Analysis, 115-136. doi:10.1016/B978-0-12-407908-3.00004-2
 }
 \seealso{
-\code{\link[rsfcNet]{strength_multiple}}
+\code{\link[rsfcNet]{degree_mult}}
 \code{\link[rsfcNet]{strength_signed}}
 \code{\link[igraph]{strength}}
 }

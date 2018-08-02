@@ -1,4 +1,4 @@
-#' Calculate Laplacian centrality for a single graph
+#' Calculate Laplacian centrality for a list of graphs.
 #'
 #' This calculates the Laplacian centrality metric for a graph.
 #' @param graphs a list of igraph objects.

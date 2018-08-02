@@ -2,7 +2,7 @@
 % Please edit documentation in R/leverage_centr.R
 \name{leverage_centr}
 \alias{leverage_centr}
-\title{Calculate leverage centrality for a single subject.}
+\title{Calculate leverage centrality for a single graph..}
 \usage{
 leverage_centr(graph, weighted = FALSE)
 }

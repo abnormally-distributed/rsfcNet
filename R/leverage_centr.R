@@ -1,4 +1,4 @@
-#' Calculate leverage centrality for a single subject.
+#' Calculate leverage centrality for a single graph..
 #'
 #' This function calculates the leverage centrality for a single graph.
 #' @param graph An undirected igraph object.

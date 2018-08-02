@@ -14,7 +14,9 @@
 #' \eqn{\frac{N-1}{\sum_{j\neq i}^N d(n_i,e_{ij})}}
 #'
 #' @examples
+#' \dontrun{
 #' closeness = closeness_centr_mult(graphs,row.names = subj_numbers,col.names = node_labels)
+#' }
 #'
 #' @seealso
 #'

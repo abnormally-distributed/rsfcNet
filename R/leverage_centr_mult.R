@@ -1,6 +1,6 @@
-#' Calculate leverage centrality for all nodes for multiple subjects.
+#' Calculate leverage centrality for a list of graphs.
 #'
-#' This function calculates the leverage centrality for a single graph.
+#' This function calculates the leverage centrality for multiple graphs.
 #' @param graphs a list of igraph objects.
 #' @param weighted By default weighted=FALSE, but can also be set to weighted=TRUE.
 #' @param parallel Should multiple cores be used? Defaults to FALSE. If TRUE, progress bar is not displayed. This is normal.

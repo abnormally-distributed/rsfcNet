@@ -57,11 +57,13 @@
 #' off simply by setting pre.thresh=FALSE.
 #'
 #' @examples
+#' \donttest{
 #' cormats = get_cor_matrices(scrubbed_ts_list)
+#' }
 #'
 #' @seealso
 #' \code{\link[rsfcNet]{threshold_matrix}}
-#' \code{\link[rsfcNet]{threshold_and_binarize}}
+#' \code{\link[rsfcNet]{binarize}}
 #'
 #' @references
 #'
