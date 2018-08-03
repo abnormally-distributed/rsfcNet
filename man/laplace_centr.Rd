@@ -7,7 +7,7 @@
 laplace_centr(graph, prog.bar = TRUE)
 }
 \arguments{
-\item{graph}{A network as an igraph object. This function works much better on a network with thresholding applied.}
+\item{graph}{A network as an igraph object.}
 
 \item{prog.bar}{Should a progress bar be displayed? Defaults to TRUE.}
 }
@@ -15,7 +15,8 @@ laplace_centr(graph, prog.bar = TRUE)
 A vector of the Laplacian centrality scores.
 }
 \description{
-This calculates the Laplacian centrality metric for a graph.
+This calculates the Laplacian centrality metric for a graph. This function works much better on a network with thresholding applied
+or on sparse graphs such that some entries have edge weights of zero. This function can take a long time to run on dense graphs.
 }
 \details{
 To first understand Laplacian centrality the concept of the Laplacian matrix must be understood.
@@ -47,7 +48,8 @@ is given by the formula below:
 Built around code translated from python. Original python code available at \url{http://igraph.wikidot.com/python-recipes#toc3}
 }
 \examples{
-LPL= laplace_centr(graph)
+
+# LPL= laplace_centr(graph)
 
 }
 \references{

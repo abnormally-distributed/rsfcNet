@@ -28,7 +28,7 @@
 #'
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' module_stats = module_connectivity(graph, module)
 #' }
 #'

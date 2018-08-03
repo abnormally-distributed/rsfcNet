@@ -1,13 +1,16 @@
 #' Calculate Laplacian centrality for a single graph.
 #'
-#' This calculates the Laplacian centrality metric for a graph.
-#' @param graph A network as an igraph object. This function works much better on a network with thresholding applied.
+#' This calculates the Laplacian centrality metric for a graph. This function works much better on a network with thresholding applied
+#' or on sparse graphs such that some entries have edge weights of zero. This function can take a long time to run on dense graphs.
+#'
+#' @param graph A network as an igraph object.
 #' @param prog.bar Should a progress bar be displayed? Defaults to TRUE.
 #' @return A vector of the Laplacian centrality scores.
 #' @author Brandon Vaughan
 #' @export
 #'
 #' @details
+#'
 #' To first understand Laplacian centrality the concept of the Laplacian matrix must be understood.
 #' The Laplacian matrix (or graph Laplacian) is the adjacency
 #' (or correlation or other weighted connectivity) matrix subtracted from the
@@ -38,7 +41,8 @@
 #'
 #'
 #' @examples
-#' LPL= laplace_centr(graph)
+#'
+#' # LPL= laplace_centr(graph)
 #'
 #' @seealso
 #' \link[rsfcNet]{laplace_centr_mult}
@@ -58,25 +62,6 @@ laplace_centr <- function (graph, prog.bar=TRUE){
   ## function available for use in the package. It will return positive strength for all positive networks and
   ## returns degree for binary networks.
 
-  strength_signed_special = function(graph){
-
-    graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE))
-    m2 = graph
-    diag(m2) = 0
-    n.nodes=ncol(m2)
-    pos.matrix <- m2
-    pos.matrix[which(m2 < 0)] <- 0
-    neg.matrix <- m2
-    neg.matrix[which(m2 > 0)] <- 0
-    pos.strength <- rowSums(pos.matrix)
-    neg.strength <- abs(rowSums(neg.matrix))
-    norm.strength <- cbind(pos.strength, neg.strength)
-    strength.star <- as.vector(sapply(1:n.nodes, function(r) norm.strength[r,1] - (norm.strength[r,2]/(norm.strength[r,1]+norm.strength[r,2])*norm.strength[r,2])))
-    strength.star[which(strength.star < 0)] <- 0
-    strength.star
-  }
-
-
   if (all(sign(E(graph)$weight)>=0)==TRUE) {      #If all edges are of weight greater than zero, igraph will be used to calculate strength/degree.
     nodes = V(graph)
     pb   <- txtProgressBar(1, as.numeric(length(V(graph))), style=3)
@@ -94,7 +79,7 @@ laplace_centr <- function (graph, prog.bar=TRUE){
     }
     return(centr)
 
-} else if (all(sign(E(graph)$weight)>=0)==FALSE) {  #If any edges are negative, strength star will be used to calculate strength. Any negative strengths will be set to zero.
+} else if (all(sign(E(graph)$weight)>=0)==FALSE) {  #If any edges are negative, strength star will be used to calculate strength.
 
   nodes = V(graph)
   pb   <- txtProgressBar(1, as.numeric(length(V(graph))), style=3)
@@ -105,11 +90,11 @@ laplace_centr <- function (graph, prog.bar=TRUE){
     Neighbors <- neighborhood(graph, 1, nodes=Node_i)[[1]][-1]
     str <- 0
     for (nb in Neighbors) {
-      str <- sum(str,strength_signed_special(graph)[nb])
+      str <- sum(str,strength_signed(graph)$strength_star[nb])
     }
-    iStr <- strength_signed_special(graph)[Node_i]
+    iStr <- strength_signed(graph)$strength_star[Node_i]
     centr <- append(centr, iStr^2 + iStr + 2*str )
   }
    return(centr)
- }
+  }
 }

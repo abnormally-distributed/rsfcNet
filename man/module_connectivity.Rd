@@ -41,7 +41,7 @@ Diversity star is calculated by weighting the diversity coeffecient for positive
 connections.
 }
 \examples{
-\dontrun {
+\dontrun{
 module_stats = module_connectivity(graph, module)
 }
 
