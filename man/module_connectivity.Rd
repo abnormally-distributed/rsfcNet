@@ -4,15 +4,13 @@
 \alias{module_connectivity}
 \title{Calculate several module/community based network statistics}
 \usage{
-module_connectivity(graph, modules, scale = FALSE, n.nodes = NULL,
+module_connectivity(graph, modules, n.nodes = NULL,
   consensus.output = FALSE)
 }
 \arguments{
 \item{graph}{a single network in matrix format or as an igraph object}
 
 \item{modules}{a communities object from an igraph clustering function}
-
-\item{scale}{Whether or not to scale the strength of each node into a 0-1 range (TRUE) or simply return the weighted sum of connections (FALSE).}
 
 \item{n.nodes}{The The number of nodes in each network.}
 }
@@ -23,22 +21,28 @@ A matrix containing several modularity/community structure based centrality meas
 This calculates the (within-module) strength star and diversity star metrics proposed by Rubinov and Sporns (2011) along with several other metrics.
 }
 \details{
-This calculates the (within-module) strength star and diversity star
- metrics proposed by Rubinov and Sporns (2011).
-Also returns Within-Module Z-Score, Within-Module Strength, Diversity-Star,
-Participation Coefficient, and percentage of total connections that exist within-module.
-Z-Scores and Participation Coefficient measures are based on the strength (star) of the nodes.
-In the event a binary network is fed, diversity will not be calculated.
-Participation will be the more appropriate measure.
-The percentage of positive intra-module connections for each
-node out of the total positive-weight connetions
-is also provided, along with the same measure for negative connections. A node that is well-integrated
-into a community/module should arguably have more a high percentage of its total
-positive connections inside the module,
+This calculates the within module strength (weighted degree) z-score (using the weighted
+signed "strength star" metric) and "diversity star" metric proposed by Rubinov and Sporns (2011).
+This also returns the participation coefficient weighted by positive and negative connections in the
+same manner as diversity. Also returned are the percentage of positive/negative weighted degree
+a node has within-module out of its total weighted degree.
+A node that is well-integrated into a community/module should arguably have
+a high percentage of its total positive connections inside the module,
 and a relatively low percentage of its negative connections within the module.
 
-Diversity star is calculated by weighting the diversity coeffecient for positive and negative
-connections.
+
+The formula used for diversity:
+
+\eqn{h_i = -\frac{1}{log(m)}  \sum_{u=1}^{N_M} \Bigg( \left ( \frac{s_{iu}}{s_i} \right ) \cdot log  \left ( \frac{s_{iu}}{s_i} \right ) \Bigg)}
+
+The formula used for participation:
+
+\eqn{p_i = 1 - \sum_{s=1}^{N_M} \left ( \frac{s_{iu}}{s_i} \right )^2}
+
+
+The weighting for diversity is calculated as follows (and participation the same formula):
+
+\eqn{h_{i}^{*} = h_{i}^{+} - \Bigg( \frac{s_i^{-}}{s_i^{+}+s_i^{-}}\Bigg) h_{i}^{-}}
 }
 \examples{
 \dontrun{

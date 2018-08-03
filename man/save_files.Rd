@@ -2,9 +2,10 @@
 % Please edit documentation in R/save_files.R
 \name{save_files}
 \alias{save_files}
-\title{Save a list of numeric matrices}
+\title{Save a list of files}
 \usage{
-save_files(files, names, path = getwd())
+save_files(files, names, path = paste0(getwd(), "/"), file.type = ".csv",
+  sep = ",", row.names = FALSE, col.names = FALSE)
 }
 \arguments{
 \item{files}{a list of matrices with numeric data.}
@@ -12,12 +13,21 @@ save_files(files, names, path = getwd())
 \item{names}{a vector of names for files. Required.}
 
 \item{path}{a path to save files in. Required, but if left blank saves to current working directory.}
+
+\item{file.type}{one of ".csv", ".tsv" or ".txt". Defaults to .csv}
+
+\item{sep}{the seperator to use for separating entries across columns.
+One of "," for comma separated values, " " for space separated values, or "\t" for tab separated values. Defaults to ","}
+
+\item{row.names}{Rowwise names to be used as the first column if desired. Defaults to none (row.names=FALSE).}
+
+\item{col.names}{Column names to be used as the top row if desired. Defaults to none (col.names=FALSE).}
 }
 \value{
 returns nothing, but saves files to a directory.
 }
 \description{
-Save a list of numeric matrices to the .csv file format.
+Save a list of matrices to the .csv or .txt file format.
 }
 \examples{
 **## Not run:**
