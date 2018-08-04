@@ -1,6 +1,6 @@
 #' Calculate degree centrality for a single graph.
 #'
-#' This function is a convenience wrapper for igraph's degree function for naming consistency with other rsfcNet functions.
+#' This function calculates the number of non-zero connections each node in a network has for a single graph.
 #' @param graph A network as an igraph object or connectivity matrix.
 #' @return A vector of centrality scores for each node.
 #' @export
@@ -27,18 +27,18 @@
 #'
 degree_centr = function(graph)
 {
-
-  if (is.igraph(graph)=="FALSE"){
-    graph =graph.adjacency(graph, mode="undirected")}
-
-  igraph::degree(graph,normalized = FALSE)
+  if (is.igraph(graph)=="TRUE"){
+    graph = as.matrix(as_adj(graph, type="both", edges=FALSE, sparse=TRUE))
+  }
+  graph = rsfcNet::binarize(graph)
+  degrees = colSums(degrees)
   return(degrees)
 }
 
 
 #' Calculate degree centrality for multiple graphs.
 #'
-#' This function is a convenience wrapper for igraph's degree function and takes as an input a list of igraph objects.
+#' This function calculates the number of non-zero connections each node in a network has for a list of graphs.
 #' @param graphs a list of igraph objects.
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
@@ -53,7 +53,7 @@ degree_centr = function(graph)
 #' For the weighted version of degree, see the functions for calculating strength.
 #'
 #' @seealso
-#' \code{\link[rsfcNet]{degree}}
+#' \code{\link[rsfcNet]{degree_centr}}
 #' \code{\link[rsfcNet]{strength_multiple}}
 #'
 #' @examples
@@ -66,7 +66,7 @@ degree_centr = function(graph)
 #'
 degree_mult = function (graphs, col.names = NULL, row.names = NULL)
 {
-  degrees = pbapply::pbsapply(graphs, function(x) igraph::degree(x,normalized = FALSE))
+  degrees = pbapply::pbsapply(graphs, function(x) rsfcNet::degree_centr(x))
   degrees = t(degree)
   colnames(degrees) = col.names
   rownames(degrees) = row.names

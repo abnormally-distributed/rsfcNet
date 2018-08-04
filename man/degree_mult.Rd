@@ -17,7 +17,7 @@ degree_mult(graphs, col.names = NULL, row.names = NULL)
 A matrix of the degree centralities of each node for each subject.
 }
 \description{
-This function is a convenience wrapper for igraph's degree function and takes as an input a list of igraph objects.
+This function calculates the number of non-zero connections each node in a network has for a list of graphs.
 }
 \details{
 Degree centrality is simply the sum of present connections of node i to each other jth node:
@@ -35,7 +35,7 @@ degree = degree_mult(graphs,row.names = subj_numbers,col.names = node_labels)
 Fornito, A., Zalesky, A., & Bullmore, E. (2016). Node Degree and Strength. Chapter 4. Fundamentals of Brain Network Analysis, 115-136. doi:10.1016/B978-0-12-407908-3.00004-2
 }
 \seealso{
-\code{\link[rsfcNet]{degree}}
+\code{\link[rsfcNet]{degree_centr}}
 \code{\link[rsfcNet]{strength_multiple}}
 }
 \author{

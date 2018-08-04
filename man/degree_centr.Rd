@@ -13,7 +13,7 @@ degree_centr(graph)
 A vector of centrality scores for each node.
 }
 \description{
-This function is a convenience wrapper for igraph's degree function for naming consistency with other rsfcNet functions.
+This function calculates the number of non-zero connections each node in a network has for a single graph.
 }
 \details{
 Degree centrality is simply the sum of present connections of node i to each other jth node:
