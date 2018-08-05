@@ -5,6 +5,7 @@
 #'
 #' @param graph A network as an igraph object.
 #' @param prog.bar Should a progress bar be displayed? Defaults to TRUE.
+#' @param weights Edge weights should you wish to provide modified input (ie, absolute value, thresholding etc)
 #' @return A vector of the Laplacian centrality scores.
 #' @author Brandon Vaughan
 #' @export
@@ -55,12 +56,7 @@
 #'
 #' Qi, Xingqin, et al. (2012). Laplacian centrality: A new centrality measure for weighted networks. Information Sciences 194: 240-253.
 
-
 laplace_centr <- function (graph, prog.bar=TRUE){
-
-  ## This is just a function within a function to calculate unweighted strength star without the fluff of the
-  ## function available for use in the package. It will return positive strength for all positive networks and
-  ## returns degree for binary networks.
 
   if (all(sign(E(graph)$weight)>=0)==TRUE) {      #If all edges are of weight greater than zero, igraph will be used to calculate strength/degree.
     nodes = V(graph)

@@ -26,7 +26,8 @@ Imports:
 	 fields (>= 9.6),
 	 colorRamps (>= 2.3),
 	 grDevices (>= 3.4.2),
-	 CorShrink (>= 0.1-6)
+	 CorShrink (>= 0.1-6),
+	 expm (>= 0.99)
 Suggests:
 	 brainGraph (>= 2.2.0),
 	 GGally (>= 1.3.2)	

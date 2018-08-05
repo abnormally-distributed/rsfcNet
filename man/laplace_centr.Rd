@@ -10,6 +10,8 @@ laplace_centr(graph, prog.bar = TRUE)
 \item{graph}{A network as an igraph object.}
 
 \item{prog.bar}{Should a progress bar be displayed? Defaults to TRUE.}
+
+\item{weights}{Edge weights should you wish to provide modified input (ie, absolute value, thresholding etc)}
 }
 \value{
 A vector of the Laplacian centrality scores.
