@@ -4,16 +4,16 @@
 \alias{import_from_list}
 \title{Imports Time Series or Confound Files from the list created with get_file_list.}
 \usage{
-import_from_list(file.list, header = FALSE, sep = "", numeric = TRUE)
+import_from_list(file.list, header, sep = "", matrix = TRUE)
 }
 \arguments{
 \item{file.list}{The list of files.}
 
-\item{header}{Are there column headers? Defaults to header = FALSE.}
+\item{header}{Are the cells in the top row of the spreadsheet colum names? Must be TRUE or FALSE.}
 
 \item{sep}{The separator used to separate entries. Defaults to "" since this is the output format from fsl.}
 
-\item{numeric}{Should all columnns be coercred to numeric if possible?}
+\item{matrix}{Should the data be imported directly to a matrix? Defaults to TRUE.}
 }
 \value{
 The time series matrix or confound matrix for each subject.
@@ -22,9 +22,9 @@ The time series matrix or confound matrix for each subject.
 This function loads the files into the global environment as a list of matrices. The function expects each file to be in a .csv or .txt format.
 }
 \examples{
-ts = import_from_list(ts_file_locations)
+ts = import_from_list(ts_file_locations, header=TRUE)
 
-confounds = import_from_list(confound_file_locations)
+confounds = import_from_list(confound_file_locations, header=FALSE)
 
 }
 \author{
