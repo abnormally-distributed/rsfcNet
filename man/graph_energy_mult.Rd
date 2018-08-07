@@ -7,7 +7,7 @@
 graph_energy_mult(graphs)
 }
 \arguments{
-\item{graphs}{A list of igraph objects}
+\item{graphs}{A list of networks as igraph objects or as matrices}
 }
 \value{
 A vector of graph energy values for each graph.

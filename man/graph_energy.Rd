@@ -7,7 +7,7 @@
 graph_energy(graph)
 }
 \arguments{
-\item{graph}{A network as an igraph object}
+\item{graph}{A network as an igraph object or connectivity matrix}
 }
 \value{
 A numeric value of the graph energy

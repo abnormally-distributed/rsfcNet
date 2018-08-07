@@ -93,7 +93,7 @@ delta_energy_mult = function(graphs) {
 #' Calculate the graph energy for a single graph
 #'
 #' This function calculates the energy of a graph.
-#' @param graph A network as an igraph object
+#' @param graph A network as an igraph object or connectivity matrix
 #' @return A numeric value of the graph energy
 #' @export
 #' @author Brandon Vaughan
@@ -122,6 +122,9 @@ delta_energy_mult = function(graphs) {
 #' Li, X.; Shi, Y.; Gutman, I. (2012), Graph Energy, New York: Springer, ISBN 978-1-4614-4219-6.
 
 graph_energy = function(graph) {
+  if (is.igraph(graph)=="TRUE"){
+    graph = as.matrix(as_adj(graph, type="both", edges=FALSE, sparse=TRUE))
+  }
   eigen = eigen(graph)$values
   sum(abs(eigen))
 }
@@ -129,7 +132,7 @@ graph_energy = function(graph) {
 #' Calculate the graph energy for a list of graphs
 #'
 #' This function calculates the energy each graph in a list.
-#' @param graphs A list of igraph objects
+#' @param graphs A list of networks as igraph objects or as matrices
 #' @return A vector of graph energy values for each graph.
 #' @export
 #' @author Brandon Vaughan
