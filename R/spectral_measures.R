@@ -123,7 +123,7 @@ delta_energy_mult = function(graphs) {
 
 graph_energy = function(graph) {
   if (is.igraph(graph)=="TRUE"){
-    graph = as.matrix(as_adj(graph, type="both", edges=FALSE, sparse=TRUE))
+    graph = as.matrix(as_adj(graph, type="both", attr="weight", edges=FALSE, sparse=TRUE))
   }
   eigen = eigen(graph)$values
   sum(abs(eigen))
