@@ -36,7 +36,7 @@ Li, X.; Shi, Y.; Gutman, I. (2012), Graph Energy, New York: Springer, ISBN 978-1
 \seealso{
 \code{\link[rsfcNet]{laplace_centr_mult}}
 \code{\link[rsfcNet]{delta_energy_mult}}
-\code{\link[igraph]{fiedler_value_mult}}
+\code{\link[rsfcNet]{fiedler_value_mult}}
 }
 \author{
 Brandon Vaughan

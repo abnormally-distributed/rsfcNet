@@ -35,7 +35,7 @@ Daianu, M., Jahanshad, N., Nir, T. M., Leonardo, C. D., Jack, C. R., Weiner, M. 
 \seealso{
 \code{\link[rsfcNet]{laplace_centr_mult}}
 \code{\link[rsfcNet]{delta_energy_mult}}
-\code{\link[igraph]{fiedler_value_mult}}
+\code{\link[rsfcNet]{fiedler_value_mult}}
 }
 \author{
 Brandon Vaughan

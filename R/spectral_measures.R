@@ -19,7 +19,7 @@
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr}}
 #' \code{\link[rsfcNet]{graph_energy}}
-#' \code{\link[igraph]{fiedler_value}}
+#' \code{\link[rsfcNet]{fiedler_value}}
 #'
 #' @examples
 #'
@@ -74,7 +74,7 @@ delta_energy = function(graph) {
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr_mult}}
 #' \code{\link[rsfcNet]{graph_energy_mult}}
-#' \code{\link[igraph]{fiedler_value_mult}}
+#' \code{\link[rsfcNet]{fiedler_value_mult}}
 #'
 #' @examples
 #'
@@ -109,8 +109,8 @@ delta_energy_mult = function(graphs) {
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr}}
 #' \code{\link[rsfcNet]{delta_energy}}
-#' \code{\link[igraph]{fiedler_value}}
-#' \code{\link[igraph]{graph_energy_mult}}
+#' \code{\link[rsfcNet]{fiedler_value}}
+#' \code{\link[rsfcNet]{graph_energy_mult}}
 #'
 #' @examples
 #'
@@ -148,7 +148,7 @@ graph_energy = function(graph) {
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr_mult}}
 #' \code{\link[rsfcNet]{delta_energy_mult}}
-#' \code{\link[igraph]{fiedler_value_mult}}
+#' \code{\link[rsfcNet]{fiedler_value_mult}}
 #'
 #' @examples
 #'
@@ -184,7 +184,7 @@ graph_energy_mult = function(graphs) {
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr_mult}}
 #' \code{\link[rsfcNet]{delta_energy_mult}}
-#' \code{\link[igraph]{fiedler_value_mult}}
+#' \code{\link[rsfcNet]{fiedler_value_mult}}
 #'
 #' @examples
 #'
@@ -225,8 +225,8 @@ fiedler_value = function(graph) {
 #' @seealso
 #' \code{\link[rsfcNet]{laplace_centr_mult}}
 #' \code{\link[rsfcNet]{delta_energy_mult}}
-#' \code{\link[igraph]{graph_energy_mult}}
-#' \code{\link[igraph]{fiedler_value}}
+#' \code{\link[rsfcNet]{graph_energy_mult}}
+#' \code{\link[rsfcNet]{fiedler_value}}
 #'
 #' @examples
 #'
