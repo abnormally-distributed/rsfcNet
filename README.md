@@ -1,3 +1,8 @@
+To install, 
+
+library(devtools)
+install_github("abnormally-distributed/rsfcNet")
+
 If you use this package please cite as follows: 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1403925.svg)](https://doi.org/10.5281/zenodo.1403925)
