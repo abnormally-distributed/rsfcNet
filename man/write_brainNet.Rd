@@ -17,6 +17,8 @@ write_brainNet(MNIcoordinates, graph, node.colors = rep(1,
 
 \item{node.size}{A vector of numbers describing the nodes (such as degree)}
 
+\item{node.labels}{A vector of node names}
+
 \item{directory}{Directory for file output. Defaults to current working directory.}
 
 \item{name}{A name for the output. Defaults to the current date.}

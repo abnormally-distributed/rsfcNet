@@ -10,10 +10,6 @@ clustcoef_signed_mult(graphs, method = "Constantini")
 \item{graphs}{A list of igraph objects or matrices.}
 
 \item{method}{Either "Constantini" (the default) or "Zhang"}
-
-\item{col.names}{A character vector of column (node) names.}
-
-\item{row.names}{A character vector of row (subject) names.}
 }
 \value{
 A matrix of clustering scores for each node and each subject

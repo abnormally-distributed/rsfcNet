@@ -4,7 +4,7 @@
 \alias{threshold_matrix}
 \title{Threshold a correlation matrix}
 \usage{
-threshold_matrix(c, method = "quantile", q.thresh = 0.9, thresh)
+threshold_matrix(c, q.thresh = 0.9, thresh)
 }
 \arguments{
 \item{c}{The network either as connectivity matrix or as an igraph object.}

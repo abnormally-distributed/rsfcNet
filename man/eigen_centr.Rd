@@ -7,7 +7,7 @@
 eigen_centr(graph)
 }
 \arguments{
-\item{graphs}{A network as an igraph object or matrix.}
+\item{graph}{A network as an igraph object or matrix.}
 }
 \value{
 A vector of centrality scores for each node.

@@ -24,7 +24,7 @@ For the weighted version of degree, see the functions for calculating strength.
 }
 \examples{
 
-degree = degree_centr(graph)
+# degree = degree_centr(graph)
 
 }
 \references{

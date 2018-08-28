@@ -28,7 +28,7 @@ For the weighted version of degree, see the functions for calculating strength.
 }
 \examples{
 
-degree = degree_mult(graphs,row.names = subj_numbers,col.names = node_labels)
+# degree = degree_mult(graphs,row.names = subj_numbers,col.names = node_labels)
 
 }
 \references{

@@ -19,7 +19,7 @@
 #'
 #' @examples
 #'
-#' degree = degree_centr(graph)
+#' # degree = degree_centr(graph)
 #'
 #' @references
 #'
@@ -58,7 +58,7 @@ degree_centr = function(graph)
 #'
 #' @examples
 #'
-#' degree = degree_mult(graphs,row.names = subj_numbers,col.names = node_labels)
+#' # degree = degree_mult(graphs,row.names = subj_numbers,col.names = node_labels)
 #'
 #' @references
 #'

@@ -4,7 +4,7 @@
 #' This function calculates the eigenvector centrality for a single graph. This function
 #' is essentially a port of the matlab script from the Brain Connectivity Toolbox (Rubinov & Sporns, 2010).
 #'
-#' @param graphs A network as an igraph object or matrix.
+#' @param graph A network as an igraph object or matrix.
 #' @return A vector of centrality scores for each node.
 #' @export
 #' @author Brandon Vaughan

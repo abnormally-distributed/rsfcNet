@@ -4,6 +4,7 @@
 #' @param graph A network in either matrix format or as an igraph object
 #' @param node.colors A vector of labels, such as module membership. Defaults to all the same color.
 #' @param node.size A vector of numbers describing the nodes (such as degree)
+#' @param node.labels A vector of node names
 #' @param directory Directory for file output. Defaults to current working directory.
 #' @param name A name for the output. Defaults to the current date.
 #' @export

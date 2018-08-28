@@ -5,8 +5,6 @@
 #'
 #' @param graphs A list of igraph objects or matrices.
 #' @param method Either "Constantini" (the default) or "Zhang"
-#' @param col.names A character vector of column (node) names.
-#' @param row.names A character vector of row (subject) names.
 #' @return A matrix of clustering scores for each node and each subject
 #' @export
 #' @author Brandon Vaughan

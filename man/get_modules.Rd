@@ -14,13 +14,11 @@ get_modules(graph, method = "fast_greedy", upper.limit = 7,
 
 \item{upper.limit}{For method="iterative_spinglass", the upper limit for the number of modules expected.}
 
+\item{step.length}{The walk length for the walktrap algorithm.}
+
 \item{signed}{For "iterative_spinglass", is the network signed?}
 
 \item{repetitions}{Number of iterations for "iterative_spinglass"}
-
-\item{step.size}{The walk length for the walktrap algorithm.
-Smaller step lengths give more stable results, but characterize modular structures at lower
-resolutions. Recommended to be between 2 and 5. Defaults to 4.}
 }
 \value{
 A communities (igraph) object containing a membership vector and modularity statistic. For method="iterative_spinglass"

@@ -3,9 +3,7 @@
 #' This function takes an igraph object and uses igraph to calculate the modularity and community structure of the graph.
 #' @param graph an igraph object
 #' @param method Can be "fast_greedy", "louvain", "walktrap", "eigenvector", or "iterative_spinglass"
-#' @param step.size The walk length for the walktrap algorithm.
-#' Smaller step lengths give more stable results, but characterize modular structures at lower
-#' resolutions. Recommended to be between 2 and 5. Defaults to 4.
+#' @param step.length The walk length for the walktrap algorithm.
 #' @param upper.limit For method="iterative_spinglass", the upper limit for the number of modules expected.
 #' @param signed For "iterative_spinglass", is the network signed?
 #' @param repetitions Number of iterations for "iterative_spinglass"
