@@ -5,13 +5,12 @@ install_github("abnormally-distributed/rsfcNet")
 
 If you use this package please cite as follows: 
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1404448.svg)](https://doi.org/10.5281/zenodo.1404448)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1403924.svg)](https://doi.org/10.5281/zenodo.1403924)
 
 
 **APA Citation:**
 
-*Vaughan, B. (2018, August 8). rsfcNet: An R Package for Resting State Functional Connectivity Network Analysis (Version 0.9.3.01.9000). Zenodo. http://doi.org/10.5281/zenodo.1404448*
+*Vaughan, B. (2018, August 8). rsfcNet: An R Package for Resting State Functional Connectivity Network Analysis (Version 0.9.3.01.9000). Zenodo. http://doi.org/10.5281/zenodo.1403924*
 
 <pre>
 <code>Version 1.0 is nearly complete. All functions should be working (though please alert me to any issues) but package documentation needs some refining (spell checks, etc).</code></pre>
