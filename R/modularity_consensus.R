@@ -96,7 +96,7 @@ modularity_consensus =  function(modules){
   membership = module
   membership = unlist(lapply(1:length(membership), function(i) rep(i, length(membership[[i]]))))
 
-  #membership = cbind(unlist(lapply(1:length(membership), function(i) rep(i, length(membership[[i]])))), unlist(module))
+   #membership = cbind(unlist(lapply(1:length(membership), function(i) rep(i, length(membership[[i]])))), unlist(module))
   membership = cbind.data.frame(unlist(module), membership)
   membership = membership$membership[order(membership$`unlist(module)`)]
   module = list(groups=module, membership=membership)
