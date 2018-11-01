@@ -4,8 +4,8 @@
 \alias{write_gephi}
 \title{Create Gephi File from graph object}
 \usage{
-write_gephi(graph, node_attributes, directory = getwd(), name = Sys.Date(),
-  node_names = NULL)
+write_gephi(graph, node_attributes, directory = getwd(),
+  name = Sys.Date(), node_names = NULL)
 }
 \arguments{
 \item{graph}{An igraph object}

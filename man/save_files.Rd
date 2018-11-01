@@ -4,8 +4,9 @@
 \alias{save_files}
 \title{Save a list of files}
 \usage{
-save_files(files, names, path = paste0(getwd(), "/"), file.type = ".csv",
-  sep = ",", row.names = FALSE, col.names = FALSE)
+save_files(files, names, path = paste0(getwd(), "/"),
+  file.type = ".csv", sep = ",", row.names = FALSE,
+  col.names = FALSE)
 }
 \arguments{
 \item{files}{a list of matrices with numeric data.}

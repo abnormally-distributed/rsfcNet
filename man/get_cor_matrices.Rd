@@ -4,8 +4,9 @@
 \alias{get_cor_matrices}
 \title{Obtain correlation matrices for each subject.}
 \usage{
-get_cor_matrices(scrubbed, method = "partial", n = NULL, n.nodes = NULL,
-  cores = NA, k = 5, alpha = 0.75, pre.thresh = TRUE)
+get_cor_matrices(scrubbed, method = "partial", n = NULL,
+  n.nodes = NULL, cores = NA, k = 5, alpha = 0.75,
+  pre.thresh = TRUE)
 }
 \arguments{
 \item{scrubbed}{The list of scrubbed time series matrices.}
