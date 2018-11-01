@@ -13,7 +13,7 @@ modularity_consensus(modules)
 Get the consensus community memberships for multiple graphs or multiple iterations of an algorithm over a single graph.
 }
 \details{
-Gets the consensus for modules
+Gets the consensus for  modules
 }
 \examples{
 **##Not run**
