@@ -6,7 +6,7 @@
 #' @export
 #' @author Brandon Vaughan
 #'
-#' @details Gets the consensus for  modules
+#' @details Gets the consensus for modules
 #'
 #' @examples
 #' **##Not run**
