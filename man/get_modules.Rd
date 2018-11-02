@@ -5,7 +5,7 @@
 \title{Get the modularity and module partitions of a weighted undirected network.}
 \usage{
 get_modules(graph, method = "fast_greedy", upper.limit = 7,
-  step.length = 4, signed = TRUE, repetitions = 25)
+  step.length = 15, signed = TRUE, repetitions = 25)
 }
 \arguments{
 \item{graph}{an igraph object}
@@ -14,7 +14,7 @@ get_modules(graph, method = "fast_greedy", upper.limit = 7,
 
 \item{upper.limit}{For method="iterative_spinglass", the upper limit for the number of modules expected.}
 
-\item{step.length}{The walk length for the walktrap algorithm.}
+\item{step.length}{The walk length for the walktrap algorithm. Defaults to 15.}
 
 \item{signed}{For "iterative_spinglass", is the network signed?}
 

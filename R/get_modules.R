@@ -3,7 +3,7 @@
 #' This function takes an igraph object and uses igraph to calculate the modularity and community structure of the graph.
 #' @param graph an igraph object
 #' @param method Can be "fast_greedy", "louvain", "walktrap", "eigenvector", or "iterative_spinglass"
-#' @param step.length The walk length for the walktrap algorithm.
+#' @param step.length The walk length for the walktrap algorithm. Defaults to 15.
 #' @param upper.limit For method="iterative_spinglass", the upper limit for the number of modules expected.
 #' @param signed For "iterative_spinglass", is the network signed?
 #' @param repetitions Number of iterations for "iterative_spinglass"
@@ -74,7 +74,7 @@
 #'
 #' Zhang, P., Moore, C. (2014) Scalable detection of statistically significant communities and hierarchies, using message passing for modularity. Proceedings of the National Academy of Sciences Dec 2014, 111 (51) 18144-18149; DOI: 10.1073/pnas.1409770111
 #'
-get_modules = function(graph, method="fast_greedy", upper.limit=7, step.length=4, signed=TRUE, repetitions=25) {
+get_modules = function(graph, method="fast_greedy", upper.limit=7, step.length=15, signed=TRUE, repetitions=25) {
     if (method=="fast_greedy") {
     greedgraph = cluster_fast_greedy(graph, weights=abs(E(graph)$weight), modularity = TRUE, membership = TRUE)
     greedgraph$modularity = modularity(greedgraph) #seems redundant with modularity=TRUE but otherwise it returns a vector of the modularity after each merge in the algorithm.
