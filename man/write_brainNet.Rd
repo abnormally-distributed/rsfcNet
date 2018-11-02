@@ -4,10 +4,8 @@
 \alias{write_brainNet}
 \title{Create Node and Edge Files for Brain Net Viewer}
 \usage{
-write_brainNet(MNIcoordinates, graph, node.colors = rep(1,
-  .GlobalEnv$n.nodes), node.size,
-  node.labels = seq(1:.GlobalEnv$n.nodes), directory = getwd(),
-  name = Sys.Date())
+write_brainNet(MNIcoordinates, graph, node.colors = "NULL", node.size,
+  node.labels = "NULL", directory = getwd(), name = Sys.Date())
 }
 \arguments{
 \item{MNIcoordinates}{A matrix with columns consisting of the X,Y,Z MNI152 coordinates (must be in this order) for ROIs}

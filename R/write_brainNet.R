@@ -22,11 +22,18 @@
 #'
 #' https://www.nitrc.org/projects/bnv/
 #'
-write_brainNet = function(MNIcoordinates, graph, node.colors=rep(1, .GlobalEnv$n.nodes), node.size, node.labels=seq(1:.GlobalEnv$n.nodes), directory=getwd(), name=Sys.Date()){
+write_brainNet = function(MNIcoordinates, graph, node.colors="NULL", node.size, node.labels="NULL", directory=getwd(), name=Sys.Date()){
 
   if (is.igraph(graph)=="TRUE"){
     graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE)) }
 
+  if (node.colors=="NULL"){
+    node.colors=rep(1, ncol(graph))
+  }
+
+  if (node.labels=="NULL"){
+    node.labels=paste0("Node", seq(1:ncol(graph)))
+  }
 
   node.file = cbind.data.frame(MNIcoordinates, node.colors, node.size, node.labels)
   file.name.node = paste0(directory,name,".node",sep="")
