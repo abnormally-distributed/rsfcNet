@@ -10,6 +10,7 @@ Depends: R (>= 3.3.0),
 	 pbapply (>= 1.3-4),
 	 parallel (>= 3.4.1)
 Imports: 
+   visNetwork (>= 2.0.4),
 	 fdrtool (>= 1.2.15),
 	 ggpubr (>= 0.1.6),
 	 psych (>= 1.8.4),
