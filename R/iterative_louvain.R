@@ -6,12 +6,24 @@
 #' @param iter the number of iterations. defaults to 100 but more may be desired.
 #' @export
 #' @author Brandon Vaughan
+<<<<<<< HEAD
 #' @details Gets the consensus for modules
+=======
+#'
+#' @details Gets the consensus for modules
+#'
+>>>>>>> 9ae2ac595fe4afb098f99d10a930f49ee2e6f5a9
 #' @examples
 #' **##Not run**
 #' iterative_louvain_signed(graph)
 #'  ## End(**Not run**)
 #'
+<<<<<<< HEAD
+=======
+#'
+#'
+
+>>>>>>> 9ae2ac595fe4afb098f99d10a930f49ee2e6f5a9
 iterative_louvain_signed <-function(graph,iter=100,cores=1)
 {
   original.graph = graph
@@ -107,6 +119,10 @@ iterative_louvain_signed <-function(graph,iter=100,cores=1)
     }
     merged_results.neg<-merge(as.data.frame(nodes),results,by.x="nodes",by.y="row.names",all.x=TRUE)
     merged_results.neg[is.na(merged_results.neg)]<-0
+<<<<<<< HEAD
+=======
+    Q = modularity(original.graph, module$membership, weights = abs(E(original.graph)$weight))
+>>>>>>> 9ae2ac595fe4afb098f99d10a930f49ee2e6f5a9
 
     Qneg= rsfcNet:::consensus.utility.func(merged_results.neg)
     Qneg = -modularity(graph, Qneg$membership, weights = abs(E(graph)$weight))
