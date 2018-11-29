@@ -362,9 +362,8 @@ vitality(graph)
 For multiple graphs:
 vitality(graphs)</code></pre>
 
-<p>Bibliography</p>
 
-<p>Bibliography</p>
+<strong><p>Bibliography</p></strong>
 
 <p>Barrat, A., Barth&eacute;lemy, M., Pastor-Satorras, R., &amp; Vespignani, A. (2004). The architecture of complex weighted networks. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>101</em>(11), 3747&ndash;3752. <a href="https://doi.org/10.1073/pnas.0400087101">https://doi.org/10.1073/pnas.0400087101</a></p>
 
