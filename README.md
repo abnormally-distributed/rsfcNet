@@ -12,8 +12,6 @@ If you use this package please cite as follows:
 
 *Vaughan, B. (2018, August 8). rsfcNet: An R Package for Resting State Functional Connectivity Network Analysis (Version 0.9.3.01.9000). Zenodo. http://doi.org/10.5281/zenodo.1403924*
 
-<pre>
-<code>Version 1.0 is nearly complete. All functions should be working (though please alert me to any issues) but package documentation needs some refining (spell checks, etc).</code></pre>
 
 <p><br />
 <em><strong>Introduction</strong></em><br />
