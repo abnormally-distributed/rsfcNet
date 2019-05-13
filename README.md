@@ -114,7 +114,7 @@ An alternative to Barratt&#39;s method is the&nbsp;Zhang &amp; Horvath (2005) me
 
 <p>For&nbsp;<em>signed&nbsp;</em>weighted graphs one should use&nbsp;the Constantini &amp; Perugini (2014) method available in the clustcoef_signed function.</p>
 
-<p><span class="math-tex">\(C_i^w=\frac{\displaystyle\sum\nolimits_{l\neq i}\sum\nolimits_{m\neq i,l}a_{il}a_{lm}a_{mi}}{\{{({\displaystyle\sum\nolimits_{l\neq i}a_{il}})}^2-{\displaystyle\sum\nolimits_{l\neq i}{(a_{il})}^2}\}}.\)</span></p>
+<p><span class="math-tex">\(\hat{C}_{i, Z}=\frac{\sum_{j, q}\left(w_{s(j, i)} w_{s(i, q)} w_{s(j, q)}\right)}{\sum_{j \neq q}\left|w_{s(j, i)} w_{s(i, q)}\right|})</span></p>
 
 <p>&nbsp;</p>
 
