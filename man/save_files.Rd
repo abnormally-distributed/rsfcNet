@@ -17,7 +17,7 @@ save_files(files, names, path = paste0(getwd(), "/"),
 
 \item{file.type}{one of ".csv", ".tsv" or ".txt". Defaults to .csv}
 
-\item{sep}{the seperator to use for separating entries across columns.{One of "," for comma separated values, " " for space separated values, or "'\t''" for tab separated values. Defaults to ","}
+\item{sep}{the seperator to use for separating entries across columns.{One of "," for comma separated values, " " for space separated values, or "backslash (putting the symbol causes rendering errors in the Rd file) t" for tab separated values. Defaults to ","}
 
 \item{row.names}{Rowwise names to be used as the first column if desired. Defaults to none (row.names=FALSE).}
 
