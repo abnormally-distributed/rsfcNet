@@ -6,7 +6,7 @@
 #' @param path a path to save files in. Required, but if left blank saves to current working directory.
 #' @param names a vector of names for files. Required.
 #' @param file.type one of ".csv", ".tsv" or ".txt". Defaults to .csv
-#' @param sep the seperator to use for separating entries across columns. One of "," for comma separated values, " " for space separated values, or "\t" for tab separated values. Defaults to ","
+#' @param sep the seperator to use for separating entries across columns. One of "," for comma separated values, " " for space separated values, or "\\t" for tab separated values. Defaults to ","
 #' @param row.names Rowwise names to be used as the first column if desired. Defaults to none (row.names=FALSE).
 #' @param col.names Column names to be used as the top row if desired. Defaults to none (col.names=FALSE).
 #' @return returns nothing, but saves files to a directory.
