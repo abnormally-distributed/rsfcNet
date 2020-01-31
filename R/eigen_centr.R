@@ -74,7 +74,7 @@ eigen_centr = function(graph, normalize = c(0, 1, 2, 3, 4, 5)) {
   }
   else if (normalize == 4){ ## thresh
     if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
-    eigen_centrality[which(eigen_centrality) < 0] <- 0; eigen_centrality <- eigen_centrality/max(eigen_centrality)
+    eigen_centrality[which(eigen_centrality < 0)] <- 0; eigen_centrality <- eigen_centrality/max(eigen_centrality)
   }
   else if (normalize == 5){ ## rank
     if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
