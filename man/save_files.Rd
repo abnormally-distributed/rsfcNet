@@ -4,9 +4,15 @@
 \alias{save_files}
 \title{Save a list of files}
 \usage{
-save_files(files, names, path = paste0(getwd(), "/"),
-  file.type = ".csv", sep = ",", row.names = FALSE,
-  col.names = FALSE)
+save_files(
+  files,
+  names,
+  path = paste0(getwd(), "/"),
+  file.type = ".csv",
+  sep = ",",
+  row.names = FALSE,
+  col.names = FALSE
+)
 }
 \arguments{
 \item{files}{a list of matrices with numeric data.}
@@ -17,7 +23,7 @@ save_files(files, names, path = paste0(getwd(), "/"),
 
 \item{file.type}{one of ".csv", ".tsv" or ".txt". Defaults to .csv}
 
-\item{sep}{the seperator to use for separating entries across columns. One of "," for comma separated values, " " for space separated values, or "\%t" for tab separated values. Defaults to ","}
+\item{sep}{the seperator to use for separating entries across columns. One of "," for comma separated values, " " for space separated values, or "\t" for tab separated values. Defaults to ","}
 
 \item{row.names}{Rowwise names to be used as the first column if desired. Defaults to none (row.names=FALSE).}
 

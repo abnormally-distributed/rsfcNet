@@ -4,8 +4,14 @@
 \alias{vitality_mult}
 \title{Find the closeness vitality for a multiple graphs.}
 \usage{
-vitality_mult(graphs, method = "regular", col.names = NULL,
-  row.names = NULL, parallel = TRUE, cores = NA)
+vitality_mult(
+  graphs,
+  method = "regular",
+  col.names = NULL,
+  row.names = NULL,
+  parallel = TRUE,
+  cores = NA
+)
 }
 \arguments{
 \item{graphs}{A list of igraph objects or connectivity matrices.}

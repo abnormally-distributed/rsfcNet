@@ -4,8 +4,13 @@
 \alias{btwn_centr_mult}
 \title{Calculate betweenness centrality for a list of graphs.}
 \usage{
-btwn_centr_mult(graphs, col.names = NULL, row.names = NULL,
-  parallel = FALSE, cores = NA)
+btwn_centr_mult(
+  graphs,
+  col.names = NULL,
+  row.names = NULL,
+  parallel = FALSE,
+  cores = NA
+)
 }
 \arguments{
 \item{graphs}{A list of igraph objects.}

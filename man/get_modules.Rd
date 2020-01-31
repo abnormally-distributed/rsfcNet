@@ -4,8 +4,14 @@
 \alias{get_modules}
 \title{Get the modularity and module partitions of a weighted undirected network.}
 \usage{
-get_modules(graph, method = "fast_greedy", upper.limit = 7,
-  step.length = 15, signed = TRUE, repetitions = 25)
+get_modules(
+  graph,
+  method = "fast_greedy",
+  upper.limit = 7,
+  step.length = 15,
+  signed = TRUE,
+  repetitions = 25
+)
 }
 \arguments{
 \item{graph}{an igraph object}

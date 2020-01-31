@@ -4,8 +4,13 @@
 \alias{laplace_centr_mult}
 \title{Calculate Laplacian centrality for a list of graphs.}
 \usage{
-laplace_centr_mult(graphs, col.names = NULL, row.names = NULL,
-  parallel = FALSE, cores = NA)
+laplace_centr_mult(
+  graphs,
+  col.names = NULL,
+  row.names = NULL,
+  parallel = FALSE,
+  cores = NA
+)
 }
 \arguments{
 \item{graphs}{a list of igraph objects.}

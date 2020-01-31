@@ -4,12 +4,14 @@
 \alias{leverage_centr}
 \title{Calculate leverage centrality for a single graph..}
 \usage{
-leverage_centr(graph, weighted = FALSE)
+leverage_centr(graph, weighted = TRUE, strength.star = F)
 }
 \arguments{
 \item{graph}{An undirected igraph object.}
 
-\item{weighted}{By default weighted=FALSE, but can also be set to weighted=TRUE.}
+\item{weighted}{By default TRUE, but can also be set to FALSE.}
+
+\item{strength.star}{Should the strength* measure of Rubinov & Sporns (2011) be used? Defaults to FALSE. If set to TRUE, only positive weights are used. Only applicable when weighted = TRUE.}
 }
 \value{
 A matrix of the leverage centralities of each node in a subject.
@@ -32,10 +34,12 @@ leverage_centr(weighted.graph, weighted=TRUE)
 
 }
 \references{
-Joyce, K. E., Laurienti, P. J., Burdette, J. H., & Hayasaka, S. (2010). A New Measure of Centrality for Brain Networks. PLoS ONE, 5(8). doi:10.1371/journal.pone.0012200
-
-Vargas, R., Waldron, A., Sharma, A., Flórez, R., & Narayan, D. A. (2017). A graph theoretic analysis of leverage centrality. AKCE International Journal of Graphs and Combinatorics, 14(3), 295-306. doi:10.1016/j.akcej.2017.05.001
-
+Joyce, K. E., Laurienti, P. J., Burdette, J. H., & Hayasaka, S. (2010). A New Measure of Centrality for Brain Networks. PLoS ONE, 5(8). doi:10.1371/journal.pone.0012200 \cr
+\cr
+Rubinov, M., & Sporns, O. (2011). Weight-conserving characterization of complex functional brain networks. NeuroImage, 56(4), 2068-2079. doi:10.1016/j.neuroimage.2011.03.069 \cr
+\cr
+Vargas, R., Waldron, A., Sharma, A., Flórez, R., & Narayan, D. A. (2017). A graph theoretic analysis of leverage centrality. AKCE International Journal of Graphs and Combinatorics, 14(3), 295-306. doi:10.1016/j.akcej.2017.05.001 \cr
+\cr
 http://igraph.wikidot.com/r-recipes#toc10
 }
 \author{

@@ -4,8 +4,13 @@
 \alias{strength_multiple}
 \title{Calculate signed strength statistics on a multiple graphs.}
 \usage{
-strength_multiple(graphs, which = "star", Scale = TRUE,
-  col.names = NULL, row.names = NULL)
+strength_multiple(
+  graphs,
+  which = "star",
+  Scale = TRUE,
+  col.names = NULL,
+  row.names = NULL
+)
 }
 \arguments{
 \item{graphs}{a list of networks in matrix format or as an igraph objects.}

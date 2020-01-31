@@ -4,8 +4,13 @@
 \alias{scrub_time_series}
 \title{"Scrubs" Bad Time Points from Time Series Matrix}
 \usage{
-scrub_time_series(ts_file_bulk, confound_file_bulk, method = "censor",
-  n = NULL, n.nodes = NULL)
+scrub_time_series(
+  ts_file_bulk,
+  confound_file_bulk,
+  method = "censor",
+  n = NULL,
+  n.nodes = NULL
+)
 }
 \arguments{
 \item{ts_file_bulk}{list of time series matrices.}

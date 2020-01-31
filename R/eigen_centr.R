@@ -1,10 +1,19 @@
 
 #' Calculate eigenvector centrality for a single graph.
 #'
-#' This function calculates the eigenvector centrality for a single graph. This function
-#' is essentially a port of the matlab script from the Brain Connectivity Toolbox (Rubinov & Sporns, 2010).
+#' @description This function calculates the eigenvector centrality for a single graph.
 #'
 #' @param graph A network as an igraph object or matrix.
+#' @param normalize how the normalization of eigenvector centrality should be treated. The options are as follows: \cr
+#' \cr
+#' If 0, no normalization is applied.  \cr
+#' If 1, the absolute value of the principal eigenvector is used as in the MATLAB Brain Connectivity Toolbox (Rubinov & Sporns, 2010),
+#' but no normalization is applied.  \cr
+#' If 2, the principal eigenvector is taken as an absolute value, and the result is divided
+#' by the maximum value such that the largest eigenvector centrality is 1.  \cr
+#' If 3, the ranks of the raw eigenvector are taken, and the ranks divided by the maximum rank such that the largest eigenvector centrality is 1. \cr
+#' If 4, eigenvector entries less than zero are set to zero, and then the scores are divided by the maximum value such that the largest eigenvector centrality is 1. \cr
+#' If 5, the raw ranks of the principal eigenvector entries are returned. \cr
 #' @return A vector of centrality scores for each node.
 #' @export
 #' @author Brandon Vaughan
@@ -39,25 +48,58 @@
 #'
 #' Rubinov, M. , Sporns, O. (2010) Complex network measures of brain connectivity: Uses and interpretations. NeuroImage 52:1059-69.
 #'
-eigen_centr = function(graph) {
+eigen_centr = function(graph, normalize = c(0, 1, 2, 3, 4, 5)) {
   if (is.igraph(graph)=="TRUE"){
     graph = as.matrix(igraph::as_adjacency_matrix(graph, edges = FALSE, attr = "weight", sparse=TRUE)) }
 
-  diag(graph) <- 0
-
+  diag(graph) <- 1
   EVC <-eigen(graph) # get eigenvalues and eigenvectors
   eigen_centrality <- EVC$vectors[,1] # get the eigenvector associated with the largest eigenvalue
-  eigen_centrality <- abs(eigen_centrality) #absolute value since the signs are arbitrary
+  normalize <- as.character(normalize)
+  normalize <- match.arg(normalize, as.character(c(0,1,2,3,4,5)))
+  normalize <- as.numeric(noquote(normalize))
+  if (normalize == 0){ ## none
+    if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
+    eigen_centrality <- eigen_centrality
+  }
+  else if (normalize == 1){ ## absval
+    eigen_centrality <- abs(eigen_centrality)
+  }
+  else if (normalize == 2){ ## max_absval
+    eigen_centrality <- abs(eigen_centrality)/max(abs(eigen_centrality))
+  }
+  else if (normalize == 3){ ## max
+    if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
+    eigen_centrality <- rank(eigen_centrality) / max(rank(eigen_centrality))
+  }
+  else if (normalize == 4){ ## thresh
+    if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
+    eigen_centrality[which(eigen_centrality) < 0] <- 0; eigen_centrality <- eigen_centrality/max(eigen_centrality)
+  }
+  else if (normalize == 5){ ## rank
+    if (all(eigen_centrality < 0)) eigen_centrality <- eigen_centrality * -1
+    eigen_centrality <- rank(eigen_centrality)
+  }
   return(eigen_centrality)
 }
 
 
 #' Calculate eigenvector centrality for multiple graphs.
 #'
-#' This function calculates the eigenvector centrality for multiple graphs. This function
-#' is essentially a port of the matlab script from the Brain Connectivity Toolbox (Rubinov & Sporns, 2010).
+#' @description This function calculates the eigenvector centrality for multiple graphs.
 #'
 #' @param graphs a list of igraph objects.
+#' @param normalize how the normalization of eigenvector centrality should be treated. The options are as follows: \cr
+#' \cr
+#' If 0, no normalization is applied.  \cr
+#' If 1, the absolute value of the principal eigenvector is used as in the MATLAB Brain Connectivity Toolbox (Rubinov & Sporns, 2010),
+#' but no normalization is applied.  \cr
+#' If 2, the principal eigenvector is taken as an absolute value, and the result is divided
+#' by the maximum value such that the largest eigenvector centrality is 1.  \cr
+#' If 3, the ranks of the raw eigenvector are taken, and the ranks divided by the maximum rank such that the largest eigenvector centrality is 1. \cr
+#' If 4, eigenvector entries less than zero are set to zero, and then the scores are divided by the maximum value such that the largest eigenvector centrality is 1. \cr
+#' If 5, the raw ranks of the principal eigenvector entries are returned. \cr
+#' @return A vector of centrality scores for each node.
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
 #' @return A matrix of the eigenvector centralities of each node for each subject.
@@ -93,8 +135,8 @@ eigen_centr = function(graph) {
 #'
 #' Rubinov, M. , Sporns, O. (2010) Complex network measures of brain connectivity: Uses and interpretations. NeuroImage 52:1059-69.
 #'
-eigen_centr_mult = function(graphs, col.names = NULL, row.names = NULL) {
-  eigen.centrality = pbapply::pbsapply(graphs, function(x) rsfcNet::eigen_centr(x))
+eigen_centr_mult = function(graphs,normalize = c(0, 1, 2, 3, 4, 5), col.names = NULL, row.names = NULL) {
+  eigen.centrality = pbapply::pbsapply(graphs, function(x) rsfcNet::eigen_centr(x, normalize))
   eigen.centrality = t(eigen.centrality)
   colnames(eigen.centrality) = col.names
   rownames(eigen.centrality) = row.names

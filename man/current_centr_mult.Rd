@@ -4,8 +4,13 @@
 \alias{current_centr_mult}
 \title{Find current-flow closeness centrality for a list of graphs}
 \usage{
-current_centr_mult(graphs, col.names = NULL, row.names = NULL,
-  parallel = TRUE, cores = NA)
+current_centr_mult(
+  graphs,
+  col.names = NULL,
+  row.names = NULL,
+  parallel = TRUE,
+  cores = NA
+)
 }
 \arguments{
 \item{graphs}{A list of igraph objects or connectivity matrices}

@@ -4,8 +4,13 @@
 \alias{strength_distribution}
 \title{Get the degree or strength distribution for a graph}
 \usage{
-strength_distribution(graph, cumulative = FALSE, signed = TRUE,
-  which.sign = "star", count = FALSE)
+strength_distribution(
+  graph,
+  cumulative = FALSE,
+  signed = TRUE,
+  which.sign = "star",
+  count = FALSE
+)
 }
 \arguments{
 \item{graph}{A network as an igraph object or connectivity matrix.}

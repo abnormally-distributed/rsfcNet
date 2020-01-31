@@ -4,8 +4,15 @@
 \alias{leverage_centr_mult}
 \title{Calculate leverage centrality for a list of graphs.}
 \usage{
-leverage_centr_mult(graphs, weighted = FALSE, col.names = NULL,
-  row.names = NULL, parallel = FALSE, cores = NA)
+leverage_centr_mult(
+  graphs,
+  weighted = TRUE,
+  strength.star = F,
+  col.names = NULL,
+  row.names = NULL,
+  parallel = TRUE,
+  cores = NA
+)
 }
 \arguments{
 \item{graphs}{a list of igraph objects.}
@@ -16,7 +23,7 @@ leverage_centr_mult(graphs, weighted = FALSE, col.names = NULL,
 
 \item{row.names}{The names of each row (subject).}
 
-\item{parallel}{Should multiple cores be used? Defaults to FALSE. If TRUE, progress bar is not displayed. This is normal.}
+\item{parallel}{Should multiple cores be used? Defaults to TRUE. If TRUE, progress bar is not displayed. This is normal.}
 
 \item{cores}{How many cores should be used? Defaults to recommended 1 less than number of CPU cores.}
 }

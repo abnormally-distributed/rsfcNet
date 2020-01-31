@@ -4,17 +4,27 @@
 \alias{eigen_centr}
 \title{Calculate eigenvector centrality for a single graph.}
 \usage{
-eigen_centr(graph)
+eigen_centr(graph, normalize = c(0, 1, 2, 3, 4, 5))
 }
 \arguments{
 \item{graph}{A network as an igraph object or matrix.}
+
+\item{normalize}{how the normalization of eigenvector centrality should be treated. The options are as follows: \cr
+\cr
+If 0, no normalization is applied.  \cr
+If 1, the absolute value of the principal eigenvector is used as in the MATLAB Brain Connectivity Toolbox (Rubinov & Sporns, 2010),
+but no normalization is applied.  \cr
+If 2, the principal eigenvector is taken as an absolute value, and the result is divided
+by the maximum value such that the largest eigenvector centrality is 1.  \cr
+If 3, the ranks of the raw eigenvector are taken, and the ranks divided by the maximum rank such that the largest eigenvector centrality is 1. \cr
+If 4, eigenvector entries less than zero are set to zero, and then the scores are divided by the maximum value such that the largest eigenvector centrality is 1. \cr
+If 5, the raw ranks of the principal eigenvector entries are returned. \cr}
 }
 \value{
 A vector of centrality scores for each node.
 }
 \description{
-This function calculates the eigenvector centrality for a single graph. This function
-is essentially a port of the matlab script from the Brain Connectivity Toolbox (Rubinov & Sporns, 2010).
+This function calculates the eigenvector centrality for a single graph.
 }
 \details{
 The eigenvector centrality is the eigenvector for each node corresponding to the largest eigenvalue of the matrix.

@@ -3,7 +3,7 @@
 #' This function calculates the leverage centrality for multiple graphs.
 #' @param graphs a list of igraph objects.
 #' @param weighted By default weighted=FALSE, but can also be set to weighted=TRUE.
-#' @param parallel Should multiple cores be used? Defaults to FALSE. If TRUE, progress bar is not displayed. This is normal.
+#' @param parallel Should multiple cores be used? Defaults to TRUE. If TRUE, progress bar is not displayed. This is normal.
 #' @param cores How many cores should be used? Defaults to recommended 1 less than number of CPU cores.
 #' @param col.names The names of each column (node labels).
 #' @param row.names The names of each row (subject).
@@ -34,10 +34,10 @@
 #'
 #' http://igraph.wikidot.com/r-recipes#toc10
 #'
-leverage_centr_mult = function(graphs, weighted=FALSE, col.names=NULL, row.names=NULL, parallel=FALSE, cores=NA){
+leverage_centr_mult = function(graphs, weighted=TRUE, strength.star = F, col.names=NULL, row.names=NULL, parallel=TRUE, cores = NA){
 
   if (parallel==FALSE) {
-    lev = pbapply::pbsapply(graphs, function(g) leverage_centr(g, weighted=weighted))
+    lev = pbapply::pbsapply(graphs, function(g) leverage_centr(g, weighted=weighted, strength.star=strength.star))
     lev = t(lev)
     rownames(lev) = row.names
     colnames(lev) = col.names
@@ -56,7 +56,7 @@ leverage_centr_mult = function(graphs, weighted=FALSE, col.names=NULL, row.names
       library(igraph)
     })
 
-    lev = parallel::parSapply(cl,graphs, function(x) rsfcNet::leverage_centr(x, weighted=weighted))
+    lev = parallel::parSapply(cl,graphs, function(x) rsfcNet::leverage_centr(x, weighted=weighted, strength.star=strength.star))
     lev = t(lev)
     stopCluster(cl)
     colnames(lev) = col.names

@@ -4,8 +4,7 @@
 \alias{module_connectivity}
 \title{Calculate several module/community based network statistics}
 \usage{
-module_connectivity(graph, modules, n.nodes = NULL,
-  consensus.output = FALSE)
+module_connectivity(graph, modules, n.nodes = NULL, consensus.output = FALSE)
 }
 \arguments{
 \item{graph}{a single network in matrix format or as an igraph object}

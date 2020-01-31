@@ -4,9 +4,16 @@
 \alias{heatmap}
 \title{Visualize a connectivity matrix}
 \usage{
-heatmap(graph, plot = TRUE, type = "static", save.html = FALSE,
-  plot.title = "Network Heatmap", directory = paste0(getwd(), "/"),
-  filename = "heatmap.html", color.scheme = viridis::viridis(500))
+heatmap(
+  graph,
+  plot = TRUE,
+  type = "static",
+  save.html = FALSE,
+  plot.title = "Network Heatmap",
+  directory = paste0(getwd(), "/"),
+  filename = "heatmap.html",
+  color.scheme = viridis::viridis(500)
+)
 }
 \arguments{
 \item{graph}{an igraph object or matrix}
