@@ -33,7 +33,8 @@ soft_thresh <- function(x, lambda = 8, zero.diag = T){
       iter <- iter+1
       new.normval <- norm(stfun(x, lambda = i), "O")
       limit.reached <- new.normval <= 1
-      i <- i + 0.175
+      i <- i + 0.1770833
+      if (i > 12) break
       change <- normval - new.normval
       normval <- new.normval
     }
