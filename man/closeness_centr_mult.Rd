@@ -38,7 +38,7 @@ Freeman, L.C. (1979). Centrality in Social Networks I: Conceptual Clarification.
 }
 \seealso{
 \code{\link[rsfcNet]{closeness_centr_mult}}
-\code{\link[rsfcNet]{curent_centr}}
+\code{\link[rsfcNet]{current_centr}}
 }
 \author{
 Brandon Vaughan
