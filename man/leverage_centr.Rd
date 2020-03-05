@@ -26,7 +26,7 @@ The formula for leverage centrality is given below, where k_i is the degree/stre
 
 \eqn{L = \frac{1}{k_i} \sum_N_i \frac{k_i-k_j}{k_i+k_j}}
 
-For more information on the mathematics of leverage centrality see Vargas et al (2017). This function was originally written by Alex Upton and can be found on the igraph wiki (see references). What this function changes is replacing NaN with zero in the case where a node without any connections after thresholding results in divison by zero. This function also expands leverage centrality to weighted undirected networks. If doing this, be sure to threshold the correlation matrix per Joyce et al (2010).
+For more information on the mathematics of leverage centrality see Vargas et al (2017). This function was originally written by Alex Upton and can be found on the igraph wiki (see references).
 }
 \examples{
 leverage_centr(binary.graph, weighted=FALSE)
